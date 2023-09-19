@@ -39,7 +39,7 @@
     border-radius: 5px;
     padding: 10px 20px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: var(--cursor);
 }
   
 .popup_close_button:hover {
