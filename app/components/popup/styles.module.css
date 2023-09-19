@@ -10,12 +10,12 @@
     padding: 40px 0;
     text-align: center;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    overflow: hidden;
 }
 
 .logo {
     margin: 0 auto 20px;
     width: 30%;
- 
 }
   
 .popup_title {
@@ -32,6 +32,10 @@
     margin-bottom: 2rem;
 }
   
+.popup_content label {
+    cursor: var(--cursor);
+}
+
 .popup_close_button {
     background-color: var(--buttonColor); /* Couleur du bouton de fermeture similaire à Pornhub */
     color: white;
@@ -45,4 +49,19 @@
 .popup_close_button:hover {
     background-color: var(--secondaryColor);; /* Couleur au survol */
 }
+
+.appear_from_bottom {
+    animation: appearFromBottom 1s ease-in-out; /* Augmentez la durée à 1s pour une animation plus lente */
+    transform-origin: bottom;
+  }
   
+  @keyframes appearFromBottom {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0); /* Modifiez cette ligne pour inverser le déplacement */
+      opacity: 1;
+    }
+  }
