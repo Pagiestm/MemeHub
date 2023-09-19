@@ -1,3 +1,48 @@
-.title {
-    color: var(--textTitle);
+/* Popup.css */
+
+.popup_container {
+    background-color: var(--primaryColor); /* Couleur de fond similaire à Pornhub */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 20px; /* Espace intérieur */
+    max-width: 700px; /* Largeur maximale */
+    width: 100%; /* Largeur de la popup */
+    height: 350px;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
 }
+
+.logo {
+    margin: 0 auto 20px;
+    width: 30%;
+ 
+}
+  
+.popup_title {
+    color: var(--textTitle);
+    font-size: 24px; /* Taille de police du titre */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.popup_content {
+    color: var(--textTitle);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+  
+.popup_close_button {
+    background-color: var(--buttonColor); /* Couleur du bouton de fermeture similaire à Pornhub */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+  
+.popup_close_button:hover {
+    background-color: var(--secondaryColor);; /* Couleur au survol */
+}
+  
