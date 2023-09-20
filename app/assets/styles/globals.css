@@ -16,3 +16,16 @@ body {
     --textNormal: white;
     --textTitle: white;
  }
+
+ body::-webkit-scrollbar {
+    width: 10px; /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--primaryColor); /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: var(--secondaryColor); 
+  }

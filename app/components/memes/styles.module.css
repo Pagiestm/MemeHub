@@ -1,0 +1,7 @@
+.popup_title {
+  color: var(--textTitle);
+  font-size: 24px; /* Taille de police du titre */
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
