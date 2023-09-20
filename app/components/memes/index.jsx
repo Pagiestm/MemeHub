@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import styles from './styles.module.css'
 import Image from "next/image";
 
 function Memes() {
@@ -25,7 +26,7 @@ function Memes() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Liste des Mèmes</h1>
+      <h1 className={styles.popup_title}>Liste des Mèmes</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {memes.map((meme) => (
           <div key={meme.id} className="rounded shadow p-4">
