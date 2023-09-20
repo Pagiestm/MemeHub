@@ -1,10 +1,11 @@
 import Popup from "./components/popup";
+import Notation from "./components/notation";
 
 export default function Home() {
   return (
     <main>
       <Popup />
-      <h1 className="text-white">yo mec</h1>
+      <Notation />
     </main>
   );
 }
