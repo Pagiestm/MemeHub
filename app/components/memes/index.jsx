@@ -24,16 +24,21 @@ function Memes() {
     }
 
     fetchMemes();
-  // Ajout du bruit de fond toutes les 10 secondes
-  const interval = setInterval(() => {
-    const noise = Math.floor(Math.random() * 100);
-    const blurredAudioSrc = `/ressources/discord.mp3?blur=${noise}`;
-    setAudioSrc(blurredAudioSrc);
-  
-  // Lecture audio
-    const audio = new Audio(blurredAudioSrc);
-    audio.play();
-  }, 10000);
+    // Ajout du bruit de fond toutes les 10 secondes
+    const interval = setInterval(() => {
+      const noise = Math.floor(Math.random() * 100);
+      const blurredAudioSrc = `/ressources/discord.mp3?blur=${noise}`;
+      setAudioSrc(blurredAudioSrc);
+
+      // Lecture audio
+      const audio = new Audio(blurredAudioSrc);
+      audio.play();
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   // Fonction pour obtenir les éléments de la page courante
   const getCurrentPageItems = () => {
@@ -48,11 +53,6 @@ function Memes() {
     setCurrentPage(newPage);
   };
 
-return () => {
-  clearInterval(interval);
-};
-}, []);
-    
   return (
     <div className="container mx-auto p-4">
       <h1 className={styles.popup_title}>Liste des Memes</h1>
