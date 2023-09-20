@@ -13,19 +13,19 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center w-1/2">
       <div className="max-w-xl w-full relative">
         <input
           type="search"
           id="search-dropdown"
-          className="block p-2.5 w-full z-20 text-sm bg-gray-700 border-l-gray-700 border-gray-600 placeholder-gray-400 text-white focus:border-blue-500 rounded-r-lg border-l-2 border focus:ring-blue-500"
+          className="block p-2.5 w-full z-20 text-sm bg-gray-700 border-l-gray-700 rounded-l border-gray-600 placeholder-gray-400 text-white focus:border-[#fe9102] rounded-r-lg border-l-2 border focus:ring-[#fe9102]"
           placeholder="Rechercher son humour..."
           required
         />
         <button
           onClick={handleSearch}
           type="submit"
-          className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-[#fe9102] rounded-r-lg border border-[#fe9102] hover:bg-[#c5924ffa] focus:ring-4 focus:outline-none focus:ring-blue-300"
+          className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-[#fe9102] rounded-r-lg border border-[#fe9102] hover:bg-[#c5924ffa] focus:ring-4 focus:outline-none focus:ring-[#fe9102]"
         >
           <svg
             className="w-4 h-4"
@@ -46,7 +46,7 @@ export default function SearchBar() {
         </button>
       </div>
       {showImage && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="fixed inset-0 flex items-center justify-center z-50 animate-spin">
           <Image
             src="https://www.francetvinfo.fr/pictures/si9iFOPV1UO8tFtNS10SPe3-MQM/1500x843/2016/08/23/internet-troll.jpg"
             alt="Image"
