@@ -26,7 +26,7 @@ function Memes() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className={styles.popup_title}>Liste des Mèmes</h1>
+      <h1 className={styles.popup_title}>Liste des Memes</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {memes.map((meme) => (
           <div key={meme.id} className="rounded shadow p-4">
