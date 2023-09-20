@@ -23,7 +23,7 @@ export default function Header() {
                   className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-[#fe9102]"
                   aria-current="page"
                 >
-                  Home
+                  Accueil
                 </a>
               </li>
               <li>
@@ -31,7 +31,7 @@ export default function Header() {
                   href="#"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-[#fe9102] dark:hover:bg-gray-700 dark:hover:text-[#fe9102] lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  Company
+                  Memes
                 </a>
               </li>
               <li>
@@ -39,7 +39,7 @@ export default function Header() {
                   href="#"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-[#fe9102] dark:hover:bg-gray-700 dark:hover:text-[#fe9102] lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  Marketplace
+                  Je sais pas
                 </a>
               </li>
               <li>
@@ -47,7 +47,7 @@ export default function Header() {
                   href="#"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-[#fe9102] dark:hover:bg-gray-700 dark:hover:text-[#fe9102] lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  Features
+                  Contact peut être ?
                 </a>
               </li>
             </ul>
