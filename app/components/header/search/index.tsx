@@ -1,5 +1,4 @@
 import { useState } from "react";
-import troll from "../../../assets/img/trololol.png";
 import Image from "next/image";
 
 export default function SearchBar() {
