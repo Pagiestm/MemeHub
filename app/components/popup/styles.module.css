@@ -1,21 +1,32 @@
 /* Popup.css */
 
+.popup_section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primaryColor)
+}
 .popup_container {
-    background-color: var(--primaryColor); /* Couleur de fond similaire à Pornhub */
-    border-radius: 10px; /* Coins arrondis */
-    padding: 20px; /* Espace intérieur */
-    max-width: 700px; /* Largeur maximale */
-    width: 100%; /* Largeur de la popup */
+    background-color: var(--primaryColor);
+    border-radius: 10px; 
+    padding: 20px;
+    max-width: 700px; 
+    width: 100%; 
     height: 350px;
     padding: 40px 0;
     text-align: center;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    overflow: hidden;
 }
 
-.logo {
+.popup_logo {
     margin: 0 auto 20px;
     width: 30%;
- 
 }
   
 .popup_title {
@@ -32,6 +43,10 @@
     margin-bottom: 2rem;
 }
   
+.popup_content label {
+    cursor: var(--cursor);
+}
+
 .popup_close_button {
     background-color: var(--buttonColor); /* Couleur du bouton de fermeture similaire à Pornhub */
     color: white;
@@ -45,4 +60,23 @@
 .popup_close_button:hover {
     background-color: var(--secondaryColor);; /* Couleur au survol */
 }
-  
+
+.appear_from_bottom {
+    animation: appearFromBottomAndSpin 2s ease-in-out;
+    transform-origin: bottom;
+    border-radius: 10px;
+    margin: 0 auto 20px;
+    width: 30%;
+}
+
+@keyframes appearFromBottomAndSpin {
+    from {
+      transform: translateY(100%) rotate(0deg);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) rotate(360deg);
+      opacity: 1;
+    }
+}
+
