@@ -12,7 +12,7 @@ function Memes() {
       try {
         const response = await fetch("https://api.imgflip.com/get_memes");
         if (!response.ok) {
-          throw new Error("Erreur lors de la récupération des mèmes");
+          throw new Error("Erreur lors de la récupération des memes");
         }
         const data = await response.json();
         setMemes(data.data.memes);
