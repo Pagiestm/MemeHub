@@ -1,0 +1,47 @@
+.popup_title {
+  color: var(--textTitle);
+  font-size: 24px; /* Taille de police du titre */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styles pour le conteneur principal du carrousel */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center; /* Centrer le contenu dans le conteneur */
+}
+
+/* Styles pour l'image affichée */
+.relative {
+  position: relative;
+  display: inline-block; /* Permet de centrer l'image horizontalement */
+}
+
+/* Style pour le texte sous l'image */
+.imageText {
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Styles pour les boutons "Précédent" et "Suivant" */
+.buttonsContainer {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carouselButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
