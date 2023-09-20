@@ -1,31 +1,30 @@
-
 .nav {
-    border-color: #e2e8f0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem;
-    background-color: var(--navBar);
+  border-color: #e2e8f0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  background-color: var(--navBar);
 }
-  
+
 /* Styles for the <a> element */
 /* Styles for the <a> element */
 .link {
-    display: block;
-    padding-left: 0.75rem;
-    border-bottom: 1px solid #e2e8f0;
-    border: none;
-    padding: 0;
-    color: var(--navLinks);
-    text-decoration: none;
-    transition: color 0.2s;
-    cursor: var(--cursor);
-  }
-  
-  .link:hover {
-    color: var(--secondaryColor);
-  }
- 
+  display: block;
+  padding-left: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  border: none;
+  padding: 0;
+  color: var(--navLinks);
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: var(--cursor);
+}
 
-  
-  
+.link:hover {
+  color: var(--secondaryColor);
+}
+
+.activeLink {
+  color: var(--secondaryColor);
+}
