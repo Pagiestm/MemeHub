@@ -4,6 +4,8 @@ import Image from "next/image";
 
 function Memes() {
   const [memes, setMemes] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   useEffect(() => {
     // Fonction pour effectuer l'appel à l'API
@@ -23,11 +25,24 @@ function Memes() {
     fetchMemes();
   }, []);
 
+  // Fonction pour obtenir les éléments de la page courante
+  const getCurrentPageItems = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return memes.slice(startIndex, endIndex);
+  };
+
+  const totalPages = Math.ceil(memes.length / itemsPerPage);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
   return (
     <div className="container mx-auto p-4">
       <h1 className={styles.popup_title}>Liste des Memes</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {memes.map((meme) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {getCurrentPageItems().map((meme) => (
           <div key={meme.id} className="rounded shadow p-4">
             <Image
               src={meme.url}
@@ -38,6 +53,19 @@ function Memes() {
             />
             <p className="text-center text-white">{meme.name}</p>
           </div>
+        ))}
+      </div>
+      <div className="mt-4 flex justify-center">
+        {Array.from({ length: totalPages }, (_, i) => (
+          <button
+            key={i + 1}
+            className={`mx-2 p-2 ${
+              currentPage === i + 1 ? "bg-blue-500 text-white" : "bg-gray-300"
+            }`}
+            onClick={() => handlePageChange(i + 1)}
+          >
+            {i + 1}
+          </button>
         ))}
       </div>
     </div>
