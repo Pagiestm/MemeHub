@@ -59,8 +59,10 @@ function Memes() {
         {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i + 1}
-            className={`mx-2 p-2 ${
-              currentPage === i + 1 ? "bg-blue-500 text-white" : "bg-gray-300"
+            className={`mx-2 px-2 bg-slate-900 text-lg hover:bg-slate-700 text-white ${
+              currentPage === i + 1
+                ? " border border-[#fe9102] text-[#fe9102]"
+                : ""
             }`}
             onClick={() => handlePageChange(i + 1)}
           >
