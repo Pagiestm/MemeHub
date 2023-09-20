@@ -17,7 +17,7 @@ body {
  }
 
  body::-webkit-scrollbar {
-    width: 100px; /* width of the entire scrollbar */
+    width: 10px; /* width of the entire scrollbar */
   }
   
   body::-webkit-scrollbar-track {
@@ -25,7 +25,6 @@ body {
   }
   
   body::-webkit-scrollbar-thumb {
-    background-size: 100%;
     border-radius: 20px;
-    background: url('https://www.mobilinnov.pt/boutique-img/coqueunique/produit/homer-face-44431-smartphone-small.jpg') no-repeat center;
+    background-color: var(--secondaryColor); 
   }
