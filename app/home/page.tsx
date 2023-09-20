@@ -6,7 +6,6 @@ export default function Home() {
     <main>
       <Header />
       <Homes />
-      <h1 className="text-white">yo mec</h1>
     </main>
   );
 }
