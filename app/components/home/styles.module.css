@@ -3,6 +3,7 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 /* Styles pour le conteneur principal du carrousel */
@@ -195,4 +196,22 @@
 
 .imageThunes {
   animation: slideAnimationThunes 1s ease-in-out;
+}
+.zemmour2 {
+  animation: zemmourAnimation 2s ease-in-out;
+  transform-origin: bottom;
+  margin-top: 400px;
+  width: 30%;
+}
+
+@keyframes zemmourAnimation {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
