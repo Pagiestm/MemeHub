@@ -16,6 +16,7 @@ import harold2Image from "app/assets/img/harold2.jpeg";
 import amongUsWalkImage from "app/assets/img/amongus_walk.gif";
 import zemmour2Image from "app/assets/img/zemmour2.png";
 import twobuttons from "app/assets/img/twobuttons.jpg";
+import nice2Image from "app/assets/gifs/nice2.gif";
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -23,11 +24,23 @@ export default function Home() {
   const [isHaroldScreamer, setIsHaroldScreamer] = useState(false);
   const [isAmongUsWalk, setIsAmongUsWalk] = useState(false);
   const [isZemmourScreamer, setIsZemmourScreamer] = useState(false);
+  const [isNiceMeme, setIsNiceMeme] = useState(false);
   const audioAh = "/ressources/ah.mp3"
   const audioWii = "/ressources/wii.mp3"
   const zemmouHIIIN = "/ressources/zemmourHIIIN.mp3"
   const audioAmongUs = "/ressources/among_us.mp3";
   const audiojsuisbien = "/ressources/jsuisbien.mp3";
+  const audioNice = "/ressources/nice.mp3";
+
+  const playAudioNice = () => {
+    const audio = new Audio(audioNice);
+    audio.play();
+  };
+  const niceScreamer = () => {
+    setIsNiceMeme(true);
+    playAudioNice();
+    setTimeout(() => setIsNiceMeme(false), 3000);
+  };
 
   const playAudioAmongUs = () => {
     const audio = new Audio(audioAmongUs);
@@ -80,7 +93,12 @@ export default function Home() {
       onClick: haroldScreamer,
       srcSecond: harold2Image,
     },
-    { alt: "Nice", src: niceImage, className: styles.imageNice },
+    { alt: "Nice", 
+      src: niceImage,
+      className: styles.imageNice,
+      onClick: niceScreamer,
+      srcSecond: nice2Image
+     },
     {
       alt: "Among Us",
       src: amongusImage,
@@ -147,6 +165,15 @@ export default function Home() {
           width={250}
           height={250}
           alt="Among us walking"
+        />
+      )}
+      {isNiceMeme && (
+        <Image
+          className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999"
+          src={images[currentImageIndex].srcSecond}
+          width={250}
+          height={250}
+          alt="Screamer nice meme"
         />
       )}
       {isZemmourScreamer && (
