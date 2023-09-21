@@ -113,6 +113,33 @@
   }
 }
 
+@keyframes slideAnimationZemmour {
+  from {
+    transform: translateX(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateX(0%) rotate(11160deg);
+  }
+}
+
+@keyframes slideAnimationCat {
+  from {
+    transform: translateX(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateX(0%) rotate(11160deg);
+  }
+}
+
+@keyframes slideAnimationThunes {
+  from {
+    transform: translateY(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateY(0%) rotate(11160deg);
+  }
+}
+
 .imageAh {
   animation: slideAnimationHarold 1s ease-in-out;
 }
@@ -139,4 +166,16 @@
 
 .imageCoffin {
   animation: slideAnimationCoffin 1s ease-in-out;
+}
+
+.imageZemmour {
+  animation: slideAnimationZemmour 2s ease-in-out;
+}
+
+.imageCat {
+  animation: slideAnimationCat 1s ease-in-out;
+}
+
+.imageThunes{
+  animation: slideAnimationThunes 1s ease-in-out;
 }

@@ -2,16 +2,16 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
-import haroldImage from "app/assets/img/harold.png"; // Importez l'image "Harold"
-import ahImage from "app/assets/img/ah.jpeg"; // Importez l'image "Ah"
-import niceImage from "app/assets/img/nice.gif"; // Importez l'image "Nice"
-import wiiImage from "app/assets/img/wii.gif"; // Importez l'image "Wii"
-import amongusImage from "app/assets/img/amongus.jpeg"; // Importez l'image "Among Us"
-import jsuisBiengImage from "app/assets/img/jsuisBieng.jpeg"; // Importez l'image "jsuisBoieng"
-import coffinImage from "app/assets/img/coffin.gif"; // Importez l'image "coffin"
-import zemmourImage from "app/assets/img/zemmour.jpeg"; // Importez l'image "zemmour"
-import catImage from "app/assets/img/cat.gif"; // Importez l'image "cat"
-import thunesImage from "app/assets/img/thunes.jpeg"; // Importez l'image "thunes"
+import haroldImage from "app/assets/img/harold.png";
+import ahImage from "app/assets/img/ah.jpeg";
+import niceImage from "app/assets/img/nice.gif";
+import wiiImage from "app/assets/img/wii.gif";
+import amongusImage from "app/assets/img/amongus.jpeg";
+import jsuisBiengImage from "app/assets/img/jsuisBieng.jpeg";
+import coffinImage from "app/assets/img/coffin.gif";
+import zemmourImage from "app/assets/img/zemmour.jpeg";
+import catImage from "app/assets/img/cat.gif";
+import thunesImage from "app/assets/img/thunes.jpeg";
 
 export default function Home() {
   const images = [
@@ -22,9 +22,9 @@ export default function Home() {
     { alt: "Among Us", src: amongusImage, className: styles.imageAmongUs },
     { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
     { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
-    { alt: "Zemmour", src: zemmourImage },
-    { alt: "Nyan Cat", src: catImage },
-    { alt: "Thunes", src: thunesImage },
+    { alt: "Zemmour", src: zemmourImage, className: styles.imageZemmour },
+    { alt: "Nyan Cat", src: catImage , className: styles.imageCat},
+    { alt: "Thunes", src: thunesImage, className: styles.imageThunes},
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
