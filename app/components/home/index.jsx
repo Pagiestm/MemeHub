@@ -3,19 +3,28 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import haroldImage from "app/assets/img/harold.png"; // Importez l'image "Harold"
+import ahImage from "app/assets/img/ah.jpeg"; // Importez l'image "Ah"
+import niceImage from "app/assets/img/nice.gif"; // Importez l'image "Nice"
+import wiiImage from "app/assets/img/wii.gif"; // Importez l'image "Wii"
+import amongusImage from "app/assets/img/amongus.jpeg"; // Importez l'image "Among Us"
+import jsuisBoiengImage from "app/assets/img/jsuisBieng.jpeg"; // Importez l'image "jsuisBoieng"
+import coffinImage from "app/assets/img/coffin.gif"; // Importez l'image "coffin"
+import zemmourImage from "app/assets/img/zemmour.jpeg"; // Importez l'image "zemmour"
+import catImage from "app/assets/img/cat.gif"; // Importez l'image "cat"
+import thunesImage from "app/assets/img/thunes.jpeg"; // Importez l'image "thunes"
 
 export default function Home() {
   const images = [
-    { alt: "Meme1", src: haroldImage },
-    { alt: "Meme2", src: haroldImage },
-    { alt: "Meme3", src: haroldImage },
-    { alt: "Meme4", src: haroldImage },
-    { alt: "Meme5", src: haroldImage },
-    { alt: "Meme6", src: haroldImage },
-    { alt: "Meme7", src: haroldImage },
-    { alt: "Meme8", src: haroldImage },
-    { alt: "Meme9", src: haroldImage },
-    { alt: "Meme10", src: haroldImage },
+    { alt: "AH", src: ahImage },
+    { alt: "Hide the Pain Harold", src:  haroldImage},
+    { alt: "Meme3", src: niceImage },
+    { alt: "Meme4", src: wiiImage },
+    { alt: "Meme5", src: amongusImage },
+    { alt: "Meme6", src: jsuisBoiengImage },
+    { alt: "Meme7", src: coffinImage },
+    { alt: "Meme8", src: zemmourImage },
+    { alt: "Meme9", src: catImage },
+    { alt: "Meme10", src: thunesImage },
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
