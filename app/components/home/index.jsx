@@ -7,7 +7,7 @@ import ahImage from "app/assets/img/ah.jpeg";
 import niceImage from "app/assets/img/nice.gif";
 import wiiImage from "app/assets/img/wii.gif";
 import amongusImage from "app/assets/img/amongus.jpeg";
-import jsuisBiengImage from "app/assets/img/jsuisBieng.jpeg";
+import jsuisBiengImage from "app/assets/img/jsuisbieng.jpeg";
 import coffinImage from "app/assets/img/coffin.gif";
 import zemmourImage from "app/assets/img/zemmour.jpeg";
 import catImage from "app/assets/img/cat.gif";
