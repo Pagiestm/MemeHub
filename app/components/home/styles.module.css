@@ -1,6 +1,6 @@
 .popup_title {
   color: var(--textTitle);
-  font-size: 24px; /* Taille de police du titre */
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -10,13 +10,36 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  text-align: center; /* Centrer le contenu dans le conteneur */
+  text-align: center;
 }
 
 /* Styles pour l'image affichée */
 .relative {
   position: relative;
-  display: inline-block; /* Permet de centrer l'image horizontalement */
+  display: inline-block;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+/* Animation pour faire glisser l'image vers la droite */
+@keyframes minionAnimation {
+  from {
+    transform: translateX(-3000%) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0) rotate(1800deg);
+    opacity: 1;
+  }
+}
+
+/* Ajoutez la classe d'animation à l'image */
+.slide_animation {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  animation: minionAnimation 2s ease-in-out;
+  transform-origin: bottom; 
 }
 
 /* Style pour le texte sous l'image */
