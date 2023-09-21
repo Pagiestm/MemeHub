@@ -24,7 +24,7 @@ export default function SearchBar() {
         <button
           onClick={handleSearch}
           type="submit"
-          className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-[#fe9102] rounded-r-lg border border-[#fe9102] hover:bg-[#c5924ffa] focus:ring-4 focus:outline-none focus:ring-[#fe9102]"
+          className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-primary rounded-r-lg border border-[#fe9102] hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-[#fe9102]"
         >
           <svg
             className="w-4 h-4"
@@ -35,9 +35,9 @@ export default function SearchBar() {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
             />
           </svg>
