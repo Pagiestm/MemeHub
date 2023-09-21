@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import styles from './styles.module.css';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import styles from "./styles.module.css";
 
 function Morpion() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -14,7 +15,7 @@ function Morpion() {
       return;
     }
 
-    newBoard[index] = xIsNext ? 'X' : 'O';
+    newBoard[index] = xIsNext ? "X" : "O";
     setBoard(newBoard);
     setXIsNext(!xIsNext);
   };
@@ -27,7 +28,7 @@ function Morpion() {
   useEffect(() => {
     const winner = calculateWinner(board);
     if (winner) {
-      if (winner === 'X') {
+      if (winner === "X") {
         setScoreX(scoreX + 1);
       } else {
         setScoreO(scoreO + 1);
@@ -39,14 +40,47 @@ function Morpion() {
     }
   }, [board, scoreX, scoreO]);
 
+  // Sélectionnez l'image du prochain joueur en fonction de xIsNext
+  let nextPlayerImage;
+  if (xIsNext) {
+    nextPlayerImage =
+      "https://cdn.discordapp.com/emojis/760753334054551572.gif?size=128&quality=lossless";
+  } else {
+    nextPlayerImage =
+      "https://cdn.discordapp.com/emojis/770397971681902592.gif?size=128&quality=lossless";
+  }
+
+  // Utilisez la variable nextPlayerImage dans le statut
+  const status = (
+    <div className={`${styles.status} flex flex-row gap-2 items-center`}>
+      <p>Prochain joueur :</p>
+      <img
+        src={nextPlayerImage}
+        alt={xIsNext ? "X" : "O"}
+        width="60px"
+        height="60px"
+      />
+    </div>
+  );
+
   const renderSquare = (index: number) => {
     const value = board[index];
     let squareContent;
 
-    if (value === 'X') {
-      squareContent = <img src="https://cdn.discordapp.com/emojis/760753334054551572.gif?size=128&quality=lossless" alt="X" />;
-    } else if (value === 'O') {
-      squareContent = <img src="https://cdn.discordapp.com/emojis/770397971681902592.gif?size=128&quality=lossless" alt="O" />;
+    if (value === "X") {
+      squareContent = (
+        <img
+          src="https://cdn.discordapp.com/emojis/760753334054551572.gif?size=128&quality=lossless"
+          alt="X"
+        />
+      );
+    } else if (value === "O") {
+      squareContent = (
+        <img
+          src="https://cdn.discordapp.com/emojis/770397971681902592.gif?size=128&quality=lossless"
+          alt="O"
+        />
+      );
     } else {
       squareContent = null;
     }
@@ -59,19 +93,11 @@ function Morpion() {
   };
 
   const winner = calculateWinner(board);
-  let status;
-  if (winner) {
-    status = 'Gagnant : ' + winner;
-  } else if (!board.includes(null)) {
-    status = 'Égalité !';
-  } else {
-    status = 'Prochain joueur : ' + (xIsNext ? 'X' : 'O');
-  }
 
   return (
     <div className={styles.container}>
-      <div className={styles.status}>{status}</div>
-      <div className={styles['board-container']}>
+      {status}
+      <div className={styles["board-container"]}>
         <div className={styles.board}>
           {Array(3)
             .fill(null)
@@ -85,8 +111,26 @@ function Morpion() {
         </div>
       </div>
       <div className={styles.score}>
-        <p>Score X: {scoreX}</p>
-        <p>Score O: {scoreO}</p>
+        <p className="flex flex-row gap-2">
+          Score
+          <img
+            src="https://cdn.discordapp.com/emojis/760753334054551572.gif?size=128&quality=lossless"
+            alt="X"
+            width="20px"
+            height="20px"
+          />
+          : {scoreX}
+        </p>
+        <p className="flex flex-row gap-2">
+          Score
+          <img
+            src="https://cdn.discordapp.com/emojis/770397971681902592.gif?size=128&quality=lossless"
+            alt="O"
+            width="20px"
+            height="20px"
+          />
+          : {scoreO}
+        </p>
       </div>
       <button className={styles.resetButton} onClick={handleReset}>
         Réinitialiser
@@ -94,7 +138,6 @@ function Morpion() {
     </div>
   );
 }
-
 
 // Fonction pour calculer le gagnant
 function calculateWinner(squares: string[]): string | null {
@@ -120,21 +163,3 @@ function calculateWinner(squares: string[]): string | null {
 }
 
 export default Morpion;
-
-
-
-
-
-
-
-/*function calculateWinner(squares: string[]): string | null {
-    const lines: number[][] = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];*/
