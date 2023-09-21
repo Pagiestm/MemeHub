@@ -1,0 +1,66 @@
+/* Morpion.module.css */
+
+/* Style du conteneur principal de la page */
+.container {
+  display: flex;
+  flex-direction: column; /* Empile les éléments verticalement */
+  justify-content: center; /* Centre verticalement */
+  align-items: center; /* Centre horizontalement */
+  min-height: 100vh; /* Assure que le conteneur occupe au moins toute la hauteur de la vue */
+}
+
+/* Style de la zone de statut */
+.status {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--textNormal);
+  }
+  
+  /* Style du plateau de jeu */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    padding: 10px; /* Espacement intérieur pour l'apparence */
+  }
+  
+  /* Style des cases */
+  .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--secondaryColor);
+    cursor: pointer;
+    background-color: orange;
+  }
+  
+  /* Style de la case lorsque le curseur est dessus */
+  .square:hover {
+    background-color: var(--secondaryColor);
+  }
+
+  /* Style du score et du bouton de réinitialisation */
+.score {
+  font-size: 18px;
+  margin-top: 10px;
+  color: var(--textNormal);
+}
+
+.resetButton {
+  background-color: var(--secondaryColor);
+  color: var(--textNormal);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.resetButton:hover {
+  background-color: var(--secondaryColor);
+}
+  
