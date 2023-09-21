@@ -12,16 +12,24 @@ import coffinImage from "app/assets/img/coffin.gif";
 import zemmourImage from "app/assets/img/zemmour.jpeg";
 import catImage from "app/assets/img/cat.gif";
 import thunesImage from "app/assets/img/thunes.jpeg";
+
 import harold2Image from "app/assets/img/harold2.jpeg";
+import zemmour2Image from "app/assets/img/zemmour2.png";
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isHaroldScreamer, setIsHaroldScreamer] = useState(false);
+  const [isZemmourScreamer, setIsZemmourScreamer] = useState(false);
 
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
     setTimeout(() => setIsHaroldScreamer(false), 2000);
+  };
+
+  const zemmourScreamer = () => {
+    setIsZemmourScreamer(true);
+    setTimeout(() => setIsZemmourScreamer(false), 2000);
   };
 
   const images = [
@@ -43,7 +51,14 @@ export default function Home() {
     { alt: "Among Us", src: amongusImage, className: styles.imageAmongUs },
     { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
     { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
-    { alt: "Zemmour", src: zemmourImage, className: styles.imageZemmour },
+    { 
+      alt: "Zemmour", 
+      src: zemmourImage, 
+      className: styles.imageZemmour ,
+
+      onClick: zemmourScreamer,
+      srcSecond: zemmour2Image,
+    },
     { alt: "Nyan Cat", src: catImage, className: styles.imageCat },
     { alt: "Thunes", src: thunesImage, className: styles.imageThunes },
   ];
@@ -65,9 +80,21 @@ export default function Home() {
   return (
     <div className={`container ${styles.carouselContainer}`}>
       {isHaroldScreamer && (
-        <div class="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className=""
+            src={images[currentImageIndex].srcSecond}
+            width={1000}
+            height={1000}
+            alt="Scremaer harold"
+          />
+        </div>
+      )}
+
+      {isZemmourScreamer && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
+          <Image
+            className={styles.zemmour2}
             src={images[currentImageIndex].srcSecond}
             width={1000}
             height={1000}
