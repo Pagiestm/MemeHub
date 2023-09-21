@@ -21,27 +21,6 @@
   animation-fill-mode: forwards;
 }
 
-/* Animation pour faire glisser l'image vers la droite */
-@keyframes minionAnimation {
-  from {
-    transform: translateX(-3000%) rotate(0deg);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(0) rotate(1800deg);
-    opacity: 1;
-  }
-}
-
-/* Ajoutez la classe d'animation à l'image */
-.slide_animation {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 2rem;
-  animation: minionAnimation 2s ease-in-out;
-  transform-origin: bottom; 
-}
-
 /* Style pour le texte sous l'image */
 .imageText {
   text-align: center;
@@ -67,4 +46,97 @@
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
+}
+
+
+@keyframes slideAnimationAh {
+  from {
+    transform: translateX(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateX(0%) rotate(360deg);;
+  }
+}
+
+@keyframes slideAnimationNice {
+  from {
+    transform: translateX(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateX(0%) rotate(360deg);;
+  }
+}
+
+/* Animation pour l'image "Hide the Pain Harold" */
+@keyframes slideAnimationHarold {
+  from {
+    transform: translateX(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateX(0%) rotate(660deg);;
+  }
+}
+
+@keyframes slideAnimationWii {
+  from {
+    transform: translateX(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateX(0%) rotate(860deg);;
+  }
+}
+
+@keyframes slideAnimationAmongUs {
+  from {
+    transform: translateX(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideAnimationbieng {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes slideAnimationCoffin {
+  from {
+    transform: translateX(-100%) rotate(0deg);;
+  }
+  to {
+    transform: translateX(0%) rotate(960deg);
+  }
+}
+
+.imageAh {
+  animation: slideAnimationHarold 1s ease-in-out;
+}
+
+.imageHarold {
+  animation: slideAnimationHarold 1s ease-in-out;
+}
+
+.imageNice {
+  animation: slideAnimationNice 1s ease-in-out;
+}
+
+.imageWii {
+  animation: slideAnimationWii 1s ease-in-out;
+}
+
+.imageAmongUs {
+  animation: slideAnimationAmongUs 1.3s ease-in-out;
+}
+
+.imageBieng {
+  animation: slideAnimationbieng 3s ease-in-out;
+}
+
+.imageCoffin {
+  animation: slideAnimationCoffin 1s ease-in-out;
 }
