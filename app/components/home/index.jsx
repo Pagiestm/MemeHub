@@ -25,7 +25,6 @@ export default function Home() {
   const [isZemmourScreamer, setIsZemmourScreamer] = useState(false);
   const audioAh = "/ressources/ah.mp3"
   const audioWii = "/ressources/wii.mp3"
-
   const audioAmongUs = "/ressources/among_us.mp3";
 
   const playAudioAmongUs = () => {
@@ -137,7 +136,6 @@ export default function Home() {
           alt="Among us walking"
         />
       )}
-      <h1 className={styles.popup_title}>Liste des Memes</h1>
       {isZemmourScreamer && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
