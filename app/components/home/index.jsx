@@ -122,7 +122,6 @@ export default function Home() {
           />
         </div>
       )}
-      <h1 className={styles.popup_title}>Liste des Memes</h1>
       <h1 className={styles.popup_title}>Liste de notre Sélection</h1>
       <div className="flex justify-center items-center flex-col">
         <Image
