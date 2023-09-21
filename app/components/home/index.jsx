@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import haroldImage from "app/assets/img/harold.png"; // Importez l'image "Harold"
@@ -15,40 +15,29 @@ import thunesImage from "app/assets/img/thunes.jpeg"; // Importez l'image "thune
 
 export default function Home() {
   const images = [
-    { alt: "AH", src: ahImage },
-    { alt: "Hide the Pain Harold", src: haroldImage },
-    { alt: "Nice", src: niceImage },
-    { alt: "Wii Sport", src: wiiImage },
-    { alt: "Among Us", src: amongusImage },
-    { alt: "J'suis bieng", src: jsuisBiengImage },
-    { alt: "Coffin Dance", src: coffinImage },
+    { alt: "AH", src: ahImage, className: styles.imageHarold },
+    { alt: "Hide the Pain Harold", src: haroldImage, className: styles.imageHarold },
+    { alt: "Nice", src: niceImage, className: styles.imageNice },
+    { alt: "Wii Sport", src: wiiImage, className: styles.imageWii },
+    { alt: "Among Us", src: amongusImage, className: styles.imageAmongUs },
+    { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
+    { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
     { alt: "Zemmour", src: zemmourImage },
     { alt: "Nyan Cat", src: catImage },
     { alt: "Thunes", src: thunesImage },
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const handlePrevClick = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleNextClick = () => {
-      setCurrentImageIndex((prevIndex) =>
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 2000);
   };
 
-  useEffect(() => {
-    const image = document.querySelector(`.${styles.slide_animation}`);
-    image.classList.remove("slide-animation"); // Supprimez la classe d'animation actuelle
-    setTimeout(() => {
-      image.classList.add("slide-animation"); // Ajoutez la classe d'animation pour déclencher l'animation
-    }, 100);
-  }, [currentImageIndex]);
-  
   return (
     <div className={`container ${styles.carouselContainer}`}>
       <h1 className={styles.popup_title}>Liste des Memes</h1>
@@ -64,9 +53,6 @@ export default function Home() {
         {images[currentImageIndex].alt}
       </p>
       <div className={`mt-4 flex justify-center ${styles.buttonsContainer}`}>
-        <button onClick={handlePrevClick} className={styles.carouselButton}>
-          Précédent
-        </button>
         <button onClick={handleNextClick} className={styles.carouselButton}>
           Suivant
         </button>
