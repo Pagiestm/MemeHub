@@ -4,9 +4,13 @@ import styles from './styles.module.css'; // Importez votre fichier CSS ou modul
 
 function Games() {
   return (
-    <div>
-      <h1>Accéder à nos différents jeux !</h1>
-      <Link className={styles.button} href="/morpion">Morpion</Link>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Accéder à nos différents jeux !</h1>
+      <div className={styles.buttonContainer}>
+        <Link className={styles.button} href="/morpion">
+          Morpion
+        </Link>
+      </div>
     </div>
   );
 }

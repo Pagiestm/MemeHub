@@ -21,6 +21,8 @@ export default function Home() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isHaroldScreamer, setIsHaroldScreamer] = useState(false);
   const [isZemmourScreamer, setIsZemmourScreamer] = useState(false);
+  const audioAh = "/ressources/ah.mp3"
+  const audioWii = "/ressources/wii.mp3"
 
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
@@ -30,6 +32,16 @@ export default function Home() {
   const zemmourScreamer = () => {
     setIsZemmourScreamer(true);
     setTimeout(() => setIsZemmourScreamer(false), 2000);
+  }
+  
+  const playAudioAh = () => {
+    const audio = new Audio(audioAh);
+    audio.play();
+  };
+
+  const playAudioWii = () => {
+    const audio = new Audio(audioWii);
+    audio.play();
   };
 
   const images = [
@@ -37,6 +49,7 @@ export default function Home() {
       alt: "AH",
       src: ahImage,
       className: styles.imageHarold,
+      onClick: playAudioAh,
     },
     {
       alt: "Hide the Pain Harold",
@@ -47,7 +60,12 @@ export default function Home() {
       srcSecond: harold2Image,
     },
     { alt: "Nice", src: niceImage, className: styles.imageNice },
-    { alt: "Wii Sport", src: wiiImage, className: styles.imageWii },
+    { 
+      alt: "Wii Sport", 
+      src: wiiImage, 
+      className: styles.imageWii,
+      onClick: playAudioWii
+    },
     { alt: "Among Us", src: amongusImage, className: styles.imageAmongUs },
     { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
     { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
