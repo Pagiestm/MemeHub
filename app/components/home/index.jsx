@@ -27,9 +27,14 @@ export default function Home() {
   const audioWii = "/ressources/wii.mp3"
   const zemmouHIIIN = "/ressources/zemmourHIIIN.mp3"
   const audioAmongUs = "/ressources/among_us.mp3";
+  const audiojsuisbien = "/ressources/jsuisbien.mp3";
 
   const playAudioAmongUs = () => {
     const audio = new Audio(audioAmongUs);
+    audio.play();
+  };
+  const playAudiojsuisbien = () => {
+    const audio = new Audio(audiojsuisbien);
     audio.play();
   };
   const haroldScreamer = () => {
@@ -89,7 +94,11 @@ export default function Home() {
       className: styles.imageWii,
       onClick: playAudioWii
     },
-    { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
+    { 
+      alt: "J'suis bieng", 
+      src: jsuisBiengImage,
+      className: styles.imageBieng,
+      onClick: playAudiojsuisbien },
     { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
     { 
       alt: "Zemmour", 
