@@ -8,7 +8,13 @@ export default function SearchBar() {
     setShowImage(true);
     setTimeout(() => {
       setShowImage(false);
-    }, 5000); // L'image disparaît après 5 secondes (5000 millisecondes)
+    }, 10000); // L'image disparaît après 5 secondes (5000 millisecondes)
+  };
+
+  const audioSrc = '/ressources/trollolol.mp3'; 
+  const handleAudioPlay = () => {
+    const audio = new Audio(audioSrc);
+    audio.play();
   };
 
   return (
@@ -22,7 +28,10 @@ export default function SearchBar() {
           required
         />
         <button
-          onClick={handleSearch}
+          onClick={() => {
+            handleSearch();
+            handleAudioPlay(); 
+          }}
           type="submit"
           className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-primary rounded-r-lg border border-[#fe9102] hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-[#fe9102]"
         >

@@ -58,7 +58,7 @@ export default function Home() {
           alt={images[currentImageIndex].alt}
           width={500}
           height={500}
-          className={`max-w-full h-auto mb-2 relative ${styles.slide_animation}`}        />
+          className={`max-w-full h-auto mb-2 relative ${styles.slide_animation}`} />
       </div>
       <p className={`text-center ${styles.imageText}`}>
         {images[currentImageIndex].alt}
