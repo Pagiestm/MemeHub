@@ -48,47 +48,64 @@
   font-size: 16px;
 }
 
+@keyframes amongUsAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(600%);
+    opacity: 1;
+  }
+}
+
+.animationAmongUs {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: amongUsAnimation 15s ease-in-out;
+  transform-origin: bottom;
+}
 
 @keyframes slideAnimationAh {
   from {
-    transform: translateX(-100%) rotate(0deg);;
+    transform: translateX(-100%) rotate(0deg);
   }
   to {
-    transform: translateX(0%) rotate(360deg);;
+    transform: translateX(0%) rotate(360deg);
   }
 }
 
 @keyframes slideAnimationNice {
   from {
-    transform: translateX(-100%) rotate(0deg);;
+    transform: translateX(-100%) rotate(0deg);
   }
   to {
-    transform: translateX(0%) rotate(360deg);;
+    transform: translateX(0%) rotate(360deg);
   }
 }
 
 /* Animation pour l'image "Hide the Pain Harold" */
 @keyframes slideAnimationHarold {
   from {
-    transform: translateX(-100%) rotate(0deg);;
+    transform: translateX(-100%) rotate(0deg);
   }
   to {
-    transform: translateX(0%) rotate(660deg);;
+    transform: translateX(0%) rotate(660deg);
   }
 }
 
 @keyframes slideAnimationWii {
   from {
-    transform: translateX(-100%) rotate(0deg);;
+    transform: translateX(-100%) rotate(0deg);
   }
   to {
-    transform: translateX(0%) rotate(860deg);;
+    transform: translateX(0%) rotate(860deg);
   }
 }
 
 @keyframes slideAnimationAmongUs {
   from {
-    transform: translateX(-100%) rotate(0deg);;
+    transform: translateX(-100%) rotate(0deg);
   }
   to {
     transform: translateX(0%);
@@ -106,7 +123,7 @@
 
 @keyframes slideAnimationCoffin {
   from {
-    transform: translateX(-100%) rotate(0deg);;
+    transform: translateX(-100%) rotate(0deg);
   }
   to {
     transform: translateX(0%) rotate(960deg);
@@ -115,7 +132,7 @@
 
 @keyframes slideAnimationZemmour {
   from {
-    transform: translateX(-100%) rotate(0deg);;
+    transform: translateX(-100%) rotate(0deg);
   }
   to {
     transform: translateX(0%) rotate(11160deg);
@@ -124,7 +141,7 @@
 
 @keyframes slideAnimationCat {
   from {
-    transform: translateX(-100%) rotate(0deg);;
+    transform: translateX(-100%) rotate(0deg);
   }
   to {
     transform: translateX(0%) rotate(11160deg);
@@ -133,7 +150,7 @@
 
 @keyframes slideAnimationThunes {
   from {
-    transform: translateY(-100%) rotate(0deg);;
+    transform: translateY(-100%) rotate(0deg);
   }
   to {
     transform: translateY(0%) rotate(11160deg);
@@ -176,6 +193,6 @@
   animation: slideAnimationCat 1s ease-in-out;
 }
 
-.imageThunes{
+.imageThunes {
   animation: slideAnimationThunes 1s ease-in-out;
 }

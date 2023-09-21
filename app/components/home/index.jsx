@@ -13,15 +13,29 @@ import zemmourImage from "app/assets/img/zemmour.jpeg";
 import catImage from "app/assets/img/cat.gif";
 import thunesImage from "app/assets/img/thunes.jpeg";
 import harold2Image from "app/assets/img/harold2.jpeg";
+import amongUsWalkImage from "app/assets/img/amongus_walk.gif";
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isHaroldScreamer, setIsHaroldScreamer] = useState(false);
+  const [isAmongUsWalk, setIsAmongUsWalk] = useState(false);
 
+  const audioAmongUs = "/ressources/among_us.mp3";
+
+  const playAudioAmongUs = () => {
+    const audio = new Audio(audioAmongUs);
+    audio.play();
+  };
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
     setTimeout(() => setIsHaroldScreamer(false), 2000);
+  };
+
+  const amongusWalking = () => {
+    setIsAmongUsWalk(true);
+    playAudioAmongUs();
+    setTimeout(() => setIsAmongUsWalk(false), 15000);
   };
 
   const images = [
@@ -40,7 +54,13 @@ export default function Home() {
     },
     { alt: "Nice", src: niceImage, className: styles.imageNice },
     { alt: "Wii Sport", src: wiiImage, className: styles.imageWii },
-    { alt: "Among Us", src: amongusImage, className: styles.imageAmongUs },
+    {
+      alt: "Among Us",
+      src: amongusImage,
+      className: styles.imageAmongUs,
+      onClick: amongusWalking,
+      srcSecond: amongUsWalkImage,
+    },
     { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
     { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
     { alt: "Zemmour", src: zemmourImage, className: styles.imageZemmour },
@@ -65,7 +85,7 @@ export default function Home() {
   return (
     <div className={`container ${styles.carouselContainer}`}>
       {isHaroldScreamer && (
-        <div class="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className=""
             src={images[currentImageIndex].srcSecond}
@@ -74,6 +94,16 @@ export default function Home() {
             alt="Scremaer harold"
           />
         </div>
+      )}
+
+      {isAmongUsWalk && (
+        <Image
+          className={styles.animationAmongUs}
+          src={images[currentImageIndex].srcSecond}
+          width={250}
+          height={250}
+          alt="Among us walking"
+        />
       )}
       <h1 className={styles.popup_title}>Liste des Memes</h1>
       <div className="flex justify-center items-center flex-col">
