@@ -4,9 +4,9 @@ import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import styles from './styles.module.css';
 import harold from '../../assets/img/harold.png';
-import logo from '../../assets/img/logo.png';
 import poney from '../../assets/gifs/petitPoney.gif';
 import minion from '../../assets/img/minion.png';
+import uwu from '../../assets/img/uwu.png';
 
 export default function Notation() {
   const [rating, setRating] = useState<number>(0);
@@ -37,7 +37,7 @@ export default function Notation() {
     '/ressources/ahhhhhhh.mp3',
     '/ressources/petitPoney.mp3',
     '/ressources/uiiiiiiii.mp3',
-    '/ressources/veryNice.mp3',
+    '/ressources/sussyUwu.mp3',
     '/ressources/dogOut.mp3',
   ];
 
@@ -45,16 +45,14 @@ export default function Notation() {
     harold,
     poney,
     minion,
-    logo,
-    logo,
+    uwu,
   ];
 
   const imageClasses = [
     styles.image_harold,
     styles.image_poney,
     styles.image_minion,
-    styles.image_logo,
-    styles.image_default,
+    styles.image_uwu,
   ];
 
   const playAudio = (index: number) => {
@@ -89,7 +87,7 @@ export default function Notation() {
         </div>
         <div className={styles.notatio_btn_container}>
             {showLink && (
-                <Link className={styles.notation_button} href="/memes">Redirection</Link>
+                <Link className={styles.notation_button} href="/home">On verra ça !</Link>
             )}
         </div>
         <audio ref={audioRef} style={{ display: 'none' }} />
