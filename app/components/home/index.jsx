@@ -24,6 +24,7 @@ export default function Home() {
   const [isZemmourScreamer, setIsZemmourScreamer] = useState(false);
   const audioAh = "/ressources/ah.mp3"
   const audioWii = "/ressources/wii.mp3"
+  const zemmouHIIIN = "/ressources/zemmourHIIIN.mp3"
 
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
@@ -33,6 +34,9 @@ export default function Home() {
   const zemmourScreamer = () => {
     setIsZemmourScreamer(true);
     setTimeout(() => setIsZemmourScreamer(false), 2000);
+
+    const audio = new Audio(zemmouHIIIN);
+    audio.play();
   }
   
   const playAudioAh = () => {
