@@ -80,55 +80,55 @@ export default function Home() {
 
   const images = [
     {
-      alt: "AH",
+      alt: "Top 10 : AH",
       src: ahImage,
       className: styles.imageHarold,
       onClick: playAudioAh,
     },
     {
-      alt: "Hide the Pain Harold",
+      alt: "Top 9 : Hide the Pain Harold",
       src: haroldImage,
       className: styles.imageHarold,
 
       onClick: haroldScreamer,
       srcSecond: harold2Image,
     },
-    { alt: "Nice", 
+    { alt: "Top 8 : Nice", 
       src: niceImage,
       className: styles.imageNice,
       onClick: niceScreamer,
       srcSecond: nice2Image
      },
     {
-      alt: "Among Us",
+      alt: "Top 7 : Among Us",
       src: amongusImage,
       className: styles.imageAmongUs,
       onClick: amongusWalking,
       srcSecond: amongUsWalkImage,
     },
     { 
-      alt: "Wii Sport", 
+      alt: "Top 6 : Wii Sport", 
       src: wiiImage, 
       className: styles.imageWii,
       onClick: playAudioWii
     },
     { 
-      alt: "J'suis bieng", 
+      alt: "Top 5 : J'suis bieng", 
       src: jsuisBiengImage,
       className: styles.imageBieng,
       onClick: playAudiojsuisbien },
-    { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
+    { alt: "Top 4 : Coffin Dance", src: coffinImage, className: styles.imageCoffin },
     { 
-      alt: "Zemmour", 
+      alt: "Top 3 : Zemmour", 
       src: zemmourImage, 
       className: styles.imageZemmour ,
 
       onClick: zemmourScreamer,
       srcSecond: zemmour2Image,
     },
-    { alt: "Nyan Cat", src: catImage, className: styles.imageCat },
-    { alt: "Thunes", src: thunesImage, className: styles.imageThunes },
-    { alt: "Two-Buttons", src: twobuttons, className: styles.twobuttons },
+    { alt: "Top 2 : Nyan Cat", src: catImage, className: styles.imageCat },
+    { alt: "Top 1 : Thunes", src: thunesImage, className: styles.imageThunes },
+    { alt: "Top 😱 : Two-Buttons", src: twobuttons, className: styles.twobuttons },
   ];
 
   const handlePrevClick = () => {
@@ -187,7 +187,7 @@ export default function Home() {
           />
         </div>
       )}
-      <h1 className={styles.popup_title}>Liste de notre Sélection</h1>
+      <center><h1 className={styles.popup_title}>Liste de notre Sélection</h1></center>
       <div className="flex justify-center items-center flex-col">
         <Image
           src={images[currentImageIndex].src}
