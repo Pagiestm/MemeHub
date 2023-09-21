@@ -15,6 +15,7 @@ import thunesImage from "app/assets/img/thunes.jpeg";
 
 import harold2Image from "app/assets/img/harold2.jpeg";
 import zemmour2Image from "app/assets/img/zemmour2.png";
+import twobuttons from "app/assets/img/twobuttons.jpg";
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -79,6 +80,7 @@ export default function Home() {
     },
     { alt: "Nyan Cat", src: catImage, className: styles.imageCat },
     { alt: "Thunes", src: thunesImage, className: styles.imageThunes },
+    { alt: "Two-Buttons", src: twobuttons, className: styles.twobuttons },
   ];
 
   const handlePrevClick = () => {
@@ -121,6 +123,7 @@ export default function Home() {
         </div>
       )}
       <h1 className={styles.popup_title}>Liste des Memes</h1>
+      <h1 className={styles.popup_title}>Liste de notre Sélection</h1>
       <div className="flex justify-center items-center flex-col">
         <Image
           src={images[currentImageIndex].src}
