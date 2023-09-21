@@ -30,6 +30,12 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  const handlePrevClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
   const handleNextClick = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -47,12 +53,18 @@ export default function Home() {
           alt={images[currentImageIndex].alt}
           width={500}
           height={500}
-          className={`max-w-full h-auto mb-2 relative ${styles.slide_animation}`} />
+          className={`max-w-full h-auto mb-2 relative ${
+            isAnimating ? images[currentImageIndex].className : ""
+          }`}
+        />
       </div>
       <p className={`text-center ${styles.imageText}`}>
         {images[currentImageIndex].alt}
       </p>
       <div className={`mt-4 flex justify-center ${styles.buttonsContainer}`}>
+      <button onClick={handlePrevClick} className={styles.carouselButton}>
+          Précédent
+        </button>
         <button onClick={handleNextClick} className={styles.carouselButton}>
           Suivant
         </button>
