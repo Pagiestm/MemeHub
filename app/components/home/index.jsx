@@ -12,8 +12,8 @@ import coffinImage from "app/assets/img/coffin.gif";
 import zemmourImage from "app/assets/img/zemmour.jpeg";
 import catImage from "app/assets/img/cat.gif";
 import thunesImage from "app/assets/img/thunes.jpeg";
-
 import harold2Image from "app/assets/img/harold2.jpeg";
+import amongUsWalkImage from "app/assets/img/amongus_walk.gif";
 import zemmour2Image from "app/assets/img/zemmour2.png";
 import twobuttons from "app/assets/img/twobuttons.jpg";
 
@@ -21,15 +21,27 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isHaroldScreamer, setIsHaroldScreamer] = useState(false);
+  const [isAmongUsWalk, setIsAmongUsWalk] = useState(false);
   const [isZemmourScreamer, setIsZemmourScreamer] = useState(false);
   const audioAh = "/ressources/ah.mp3"
   const audioWii = "/ressources/wii.mp3"
 
+  const audioAmongUs = "/ressources/among_us.mp3";
+
+  const playAudioAmongUs = () => {
+    const audio = new Audio(audioAmongUs);
+    audio.play();
+  };
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
     setTimeout(() => setIsHaroldScreamer(false), 2000);
   };
 
+  const amongusWalking = () => {
+    setIsAmongUsWalk(true);
+    playAudioAmongUs();
+    setTimeout(() => setIsAmongUsWalk(false), 15000);
+  }
   const zemmourScreamer = () => {
     setIsZemmourScreamer(true);
     setTimeout(() => setIsZemmourScreamer(false), 2000);
@@ -61,13 +73,19 @@ export default function Home() {
       srcSecond: harold2Image,
     },
     { alt: "Nice", src: niceImage, className: styles.imageNice },
+    {
+      alt: "Among Us",
+      src: amongusImage,
+      className: styles.imageAmongUs,
+      onClick: amongusWalking,
+      srcSecond: amongUsWalkImage,
+    },
     { 
       alt: "Wii Sport", 
       src: wiiImage, 
       className: styles.imageWii,
       onClick: playAudioWii
     },
-    { alt: "Among Us", src: amongusImage, className: styles.imageAmongUs },
     { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
     { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
     { 
@@ -110,7 +128,16 @@ export default function Home() {
           />
         </div>
       )}
-
+      {isAmongUsWalk && (
+        <Image
+          className={styles.animationAmongUs}
+          src={images[currentImageIndex].srcSecond}
+          width={250}
+          height={250}
+          alt="Among us walking"
+        />
+      )}
+      <h1 className={styles.popup_title}>Liste des Memes</h1>
       {isZemmourScreamer && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
