@@ -16,6 +16,7 @@ import harold2Image from "app/assets/img/harold2.jpeg";
 import amongUsWalkImage from "app/assets/img/amongus_walk.gif";
 import zemmour2Image from "app/assets/img/zemmour2.png";
 import twobuttons from "app/assets/img/twobuttons.jpg";
+import moneyRain from "app/assets/gifs/moneyRain.gif";
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -23,10 +24,15 @@ export default function Home() {
   const [isHaroldScreamer, setIsHaroldScreamer] = useState(false);
   const [isAmongUsWalk, setIsAmongUsWalk] = useState(false);
   const [isZemmourScreamer, setIsZemmourScreamer] = useState(false);
+  const [ismoneyRain, setIsmoneyRain] = useState(false);
+  const [iscoffin, setIscoffin] = useState(false);
+
   const audioAh = "/ressources/ah.mp3"
   const audioWii = "/ressources/wii.mp3"
   const zemmouHIIIN = "/ressources/zemmourHIIIN.mp3"
-  const audioAmongUs = "/ressources/among_us.mp3";
+  const audioAmongUs = "/ressources/among_us.mp3"
+  const audioMoney = "/ressources/money.mp3"
+  const coffinAudio = "/ressources/coffinDance.mp3"
 
   const playAudioAmongUs = () => {
     const audio = new Audio(audioAmongUs);
@@ -42,11 +48,28 @@ export default function Home() {
     playAudioAmongUs();
     setTimeout(() => setIsAmongUsWalk(false), 15000);
   }
+
   const zemmourScreamer = () => {
     setIsZemmourScreamer(true);
     setTimeout(() => setIsZemmourScreamer(false), 2000);
 
     const audio = new Audio(zemmouHIIIN);
+    audio.play();
+  }
+
+  const money = () => {
+    setIsmoneyRain(true);
+    setTimeout(() => setIsmoneyRain(false), 15000);
+
+    const audio = new Audio(audioMoney);
+    audio.play();
+  }
+
+  const coffinDance = () => {
+    setIscoffin(true);
+    setTimeout(() => setIscoffin(false), 23000);
+
+    const audio = new Audio(coffinAudio);
     audio.play();
   }
   
@@ -90,7 +113,13 @@ export default function Home() {
       onClick: playAudioWii
     },
     { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
-    { alt: "Coffin Dance", src: coffinImage, className: styles.imageCoffin },
+    { 
+      alt: "Coffin Dance", 
+      src: coffinImage, 
+      className: styles.imageCoffin,
+      onClick: coffinDance,
+      srcSecond: coffinImage,
+    },
     { 
       alt: "Zemmour", 
       src: zemmourImage, 
@@ -100,7 +129,14 @@ export default function Home() {
       srcSecond: zemmour2Image,
     },
     { alt: "Nyan Cat", src: catImage, className: styles.imageCat },
-    { alt: "Thunes", src: thunesImage, className: styles.imageThunes },
+    { 
+      alt: "Thunes", 
+      src: thunesImage, 
+      className: styles.imageThunes,
+
+      onClick: money,
+      srcSecond: moneyRain,
+    },
     { alt: "Two-Buttons", src: twobuttons, className: styles.twobuttons },
   ];
 
@@ -144,6 +180,28 @@ export default function Home() {
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className={styles.zemmour2}
+            src={images[currentImageIndex].srcSecond}
+            width={1000}
+            height={1000}
+            alt="Scremaer harold"
+          />
+        </div>
+      )}
+      {ismoneyRain && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
+          <Image
+            className=""
+            src={images[currentImageIndex].srcSecond}
+            width={1000}
+            height={1000}
+            alt="Scremaer harold"
+          />
+        </div>
+      )}
+      {iscoffin && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
+          <Image
+            className={styles.coffinDance}
             src={images[currentImageIndex].srcSecond}
             width={1000}
             height={1000}
