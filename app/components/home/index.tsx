@@ -378,6 +378,7 @@ export default function Home() {
       {showButtonClick && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <img
+          className={styles.easterEgg}
             src="https://cherry.img.pmdstatic.net/fit/https.3A.2F.2Fimg.2Eohmymag.2Ecom.2Fs3.2Ffromm.2Finsolite.2Fdefault_2019-10-08_cfb50d5a-bb57-4cbc-be5c-bd159070d3a7.2Ejpeg/1200x675/quality/80/saviez-vous-que-le-jeu-du-rond-provient-d-une-celebre-serie.jpg" // Replace with the image URL for your button
             alt="Button Image"
             style={{
