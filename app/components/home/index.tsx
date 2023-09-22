@@ -40,6 +40,7 @@ export default function Home() {
   const audiojsuisbien = "/ressources/jsuisbien.mp3";
   const audioNice = "/ressources/nice.mp3";
   const audioCat = "/ressources/cat.mp3";
+  const audiohehe = "/ressources/hehe.mp3";
 
   /* Show the easter egg*/
   const [content, setContent] = useState<React.ReactNode | null>(
@@ -70,7 +71,7 @@ export default function Home() {
       setContent(null);
     }
 
-    if (cx > 350 && cx < 440 && cy > 120 && cy < 230) {
+    if (cx > 280 && cx < 380 && cy > 120 && cy < 150) {
       setShowButtonClick(true);
       setContent(null);
     }
@@ -106,8 +107,15 @@ export default function Home() {
     const audio = new Audio(audiojsuisbien);
     audio.play();
   };
+
+  const playAudiohehe = () => {
+    const audio = new Audio(audiohehe);
+    audio.play();
+  };
+
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
+    playAudiohehe();
     setTimeout(() => setIsHaroldScreamer(false), 2000);
   };
 
