@@ -38,27 +38,34 @@ export default function Home() {
   const audiojsuisbien = "/ressources/jsuisbien.mp3";
   const audioNice = "/ressources/nice.mp3";
 
+  const playAudioNice = () => {
+    const audio = new Audio(audioNice);
+    audio.play();
+  };
+  const niceScreamer = () => {
+    setIsNiceMeme(true);
+    playAudioNice();
+    setTimeout(() => setIsNiceMeme(false), 3000);
+  };
+
+  const playAudioAmongUs = () => {
+    const audio = new Audio(audioAmongUs);
+    audio.play();
+  };
+  const playAudiojsuisbien = () => {
+    const audio = new Audio(audiojsuisbien);
+    audio.play();
+  };
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
     setTimeout(() => setIsHaroldScreamer(false), 2000);
   };
 
-  const niceScreamer = () => {
-    setIsNiceMeme(true);
-    setTimeout(() => setIsNiceMeme(false), 3000);
-
-    const audio = new Audio(audioNice);
-    audio.play();
-  };
-
   const amongusWalking = () => {
     setIsAmongUsWalk(true);
+    playAudioAmongUs();
     setTimeout(() => setIsAmongUsWalk(false), 15000);
-
-    const audio = new Audio(audioAmongUs);
-    audio.play();
   }
-
   const zemmourScreamer = () => {
     setIsZemmourScreamer(true);
     setTimeout(() => setIsZemmourScreamer(false), 2000);
@@ -66,6 +73,16 @@ export default function Home() {
     const audio = new Audio(zemmouHIIIN);
     audio.play();
   }
+  
+  const playAudioAh = () => {
+    const audio = new Audio(audioAh);
+    audio.play();
+  };
+
+  const playAudioWii = () => {
+    const audio = new Audio(audioWii);
+    audio.play();
+  };
 
   const money = () => {
     setIsmoneyRain(true);
@@ -82,83 +99,73 @@ export default function Home() {
     const audio = new Audio(coffinAudio);
     audio.play();
   }
-  
-  const playAudioAh = () => {
-    const audio = new Audio(audioAh);
-    audio.play();
-  };
 
-  const playAudioWii = () => {
-    const audio = new Audio(audioWii);
-    audio.play();
-  };
+const images = [
+  {
+    alt: "Top 10 : AH",
+    src: ahImage,
+    className: styles.imageHarold,
+    onClick: playAudioAh,
+  },
+  {
+    alt: "Top 9 : Hide the Pain Harold",
+    src: haroldImage,
+    className: styles.imageHarold,
 
-  const images = [
-    {
-      alt: "AH",
-      src: ahImage,
-      className: styles.imageHarold,
-      onClick: playAudioAh,
-    },
-    {
-      alt: "Hide the Pain Harold",
-      src: haroldImage,
-      className: styles.imageHarold,
+    onClick: haroldScreamer,
+    srcSecond: harold2Image,
+  },
+  { alt: "Top 8 : Nice", 
+    src: niceImage,
+    className: styles.imageNice,
+    onClick: niceScreamer,
+    srcSecond: nice2Image
+   },
+  {
+    alt: "Top 7 : Among Us",
+    src: amongusImage,
+    className: styles.imageAmongUs,
+    onClick: amongusWalking,
+    srcSecond: amongUsWalkImage,
+  },
+  { 
+    alt: "Top 6 : Wii Sport", 
+    src: wiiImage, 
+    className: styles.imageWii,
+    onClick: playAudioWii
+  },
+  { 
+    alt: "Top 5 : J'suis bieng", 
+    src: jsuisBiengImage,
+    className: styles.imageBieng,
+    onClick: playAudiojsuisbien 
+  },
+  { 
+    alt: "Top 4 : Coffin Dance", 
+    src: coffinImage, 
+    className: styles.imageCoffin,
+    onClick: coffinDance,
+    srcSecond: coffinImage,
+  },  
+  { 
+    alt: "Top 3 : Zemmour", 
+    src: zemmourImage, 
+    className: styles.imageZemmour ,
 
-      onClick: haroldScreamer,
-      srcSecond: harold2Image,
-    },
-    { 
-      alt: "Nice", 
-      src: niceImage, 
-      className: styles.imageNice,
-      onclick: niceScreamer,
-      srcSecond: nice2Image,
-    },
-    {
-      alt: "Among Us",
-      src: amongusImage,
-      className: styles.imageAmongUs,
-      onClick: amongusWalking,
-      srcSecond: amongUsWalkImage,
-    },
-    { 
-      alt: "Wii Sport", 
-      src: wiiImage, 
-      className: styles.imageWii,
-      onClick: playAudioWii
-    },
-    { 
-      alt: "J'suis bieng", 
-      src: jsuisBiengImage, 
-      className: styles.imageBieng 
-    },
-    { 
-      alt: "Coffin Dance", 
-      src: coffinImage, 
-      className: styles.imageCoffin,
-      onClick: coffinDance,
-      srcSecond: coffinImage,
-    },
-    { 
-      alt: "Zemmour", 
-      src: zemmourImage, 
-      className: styles.imageZemmour ,
+    onClick: zemmourScreamer,
+    srcSecond: zemmour2Image,
+  },
+  { alt: "Top 2 : Nyan Cat", src: catImage, className: styles.imageCat },
+  { 
+    alt: "Top 1 : Thunes", 
+    src: thunesImage, 
+    className: styles.imageThunes,
 
-      onClick: zemmourScreamer,
-      srcSecond: zemmour2Image,
-    },
-    { alt: "Nyan Cat", src: catImage, className: styles.imageCat },
-    { 
-      alt: "Thunes", 
-      src: thunesImage, 
-      className: styles.imageThunes,
-
-      onClick: money,
-      srcSecond: moneyRain,
-    },
-    { alt: "Two-Buttons", src: twobuttons, className: styles.twobuttons },
-  ];
+    onClick: money,
+    srcSecond: moneyRain,
+  },
+  { alt: "Top 😱 : Two-Buttons", src: twobuttons, className: styles.twobuttons },
+];
 
   const handlePrevClick = () => {
     setCurrentImageIndex((prevIndex) =>
