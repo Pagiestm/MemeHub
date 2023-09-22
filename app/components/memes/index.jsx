@@ -124,21 +124,22 @@ function Memes() {
       <h1 className={styles.popup_title}>Liste des Memes</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {getCurrentPageItems().map((meme) => (
-          <div key={meme.id} className="rounded shadow p-4">
+          <div
+            key={meme.id}
+            className="rounded-lg overflow-hidden shadow-lg border border-primary"
+          >
             <Image
               src={meme.url}
               alt={meme.name}
               width={250}
               height={250}
-              className="max-w-full h-auto mb-2"
+              className="object-cover w-full h-48 md:h-60 lg:h-72 xl:h-96 border-b border-primary"
             />
-            <p className="text-center text-white">{meme.name}</p>
+            <p className="text-center text-white mt-2 p-4">{meme.name}</p>
           </div>
         ))}
       </div>
-      <div className="mt-4 flex justify-center">
-        {renderPagination()}
-      </div>
+      <div className="mt-4 flex justify-center">{renderPagination()}</div>
     </div>
   );
 }
