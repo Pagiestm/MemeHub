@@ -40,6 +40,9 @@ export default function Home() {
   const audiojsuisbien = "/ressources/jsuisbien.mp3";
   const audioNice = "/ressources/nice.mp3";
   const audioCat = "/ressources/cat.mp3";
+  const audiohehe = "/ressources/hehe.mp3";
+  const bienJouer = "/ressources/bienJouer.mp3";
+  const bienJouer2 = "/ressources/bienJouer2.mp3";
 
   /* Show the easter egg*/
   const [content, setContent] = useState<React.ReactNode | null>(
@@ -73,12 +76,16 @@ export default function Home() {
       console.log(e.target);
       img.style.opacity = '0';
       setShowButtonClick(true);
+      const audio = new Audio(bienJouer);
+      audio.play();
       setContent(null);
     }
 
     if (cx > 280 && cx < 380 && cy > 120 && cy < 200) {
       img.style.opacity = '0';
       setShowButtonClick(true);
+      const audio = new Audio(bienJouer2);
+      audio.play();
       setContent(null);
     }
   };
@@ -96,7 +103,7 @@ export default function Home() {
   const catScreamer = () => {
     setIsCatScreamer(true);
     playAudioCat();
-    setTimeout(() => setIsCatScreamer(false), 5000);
+    setTimeout(() => setIsCatScreamer(false), 10000);
   };
 
   const niceScreamer = () => {
@@ -322,6 +329,27 @@ export default function Home() {
           width={250}
           height={250}
           alt="Nyan Cat Walking"
+        />
+      )}
+      {isCatScreamer && ( 
+        <Image 
+        src={cat2Image} 
+        alt="Cat" 
+        className={styles.catContainerTop} 
+        />
+      )}
+      {isCatScreamer && ( 
+        <Image 
+        src={cat2Image} 
+        alt="Cat" 
+        className={styles.catContainerMiddle} 
+        />
+      )}
+      {isCatScreamer && ( 
+        <Image 
+        src={cat2Image} 
+        alt="Cat" 
+        className={styles.catContainerMiddleB} 
         />
       )}
       <center><h1 className={styles.popup_title}>Liste de notre Sélection</h1></center>

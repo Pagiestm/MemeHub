@@ -257,6 +257,14 @@
   }
 }
 
+.animationCat {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: catAnimation 30s ease-in-out 3; /* Ajoutez le nombre d'itérations (3) ici */
+  transform-origin: bottom;
+}
+
 @keyframes catAnimation {
   from {
     transform: translateX(0);
@@ -267,10 +275,64 @@
   }
 }
 
+
+.easterEgg {
+  animation: easterEggAnimation 0.5s ease-in-out;
+  transform-origin: center;
+  width: 20%;
+  border-radius: 100%;
+  transform: scale(2);
+}
+
+@keyframes easterEggAnimation {
+  0% {
+    transform: scale(0) rotate(0deg);
+  }
+  100% {
+    transform: scale(2) rotate(1800deg);
+  }
+}
 .animationCat {
   position: absolute;
   left: 0;
   bottom: 0;
-  animation: catAnimation 30s ease-in-out;
+  animation: catAnimation 70s ease-in-out;
   transform-origin: bottom;
+  width: 300px;
+}
+
+@keyframes catAnimationAll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(15000%);
+    opacity: 1;
+  }
+}
+
+.catContainerTop {
+  left: 0;
+  animation: catAnimationAll 70s ease-in-out;
+  transform-origin: bottom;
+  position: fixed;
+  top: 0;
+  width: 300px;
+}
+
+.catContainerMiddle {
+  left: 0;
+  animation: catAnimationAll 50s ease-in-out;
+  transform-origin: bottom;
+  position: fixed;
+  top : 50%;
+  width: 300px;
+}
+.catContainerMiddleB {
+  left: 0;
+  animation: catAnimationAll 50s ease-in-out;
+  transform-origin: bottom;
+  position: fixed;
+  top : 25%;
+  width: 300px;
 }
