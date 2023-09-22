@@ -8,6 +8,7 @@ function Memes() {
   const itemsPerPage = 8;
   const [audioSrc, setAudioSrc] = useState(null);
   const maxPaginationButtons = 10;
+  const [selectedMeme, setSelectedMeme] = useState(null);
 
   useEffect(() => {
     // Fonction pour effectuer l'appel à l'API
@@ -40,6 +41,16 @@ function Memes() {
       clearInterval(interval);
     };
   }, []);
+
+  // Fonction pour ouvrir la modale avec l'image en grand
+  const openModal = (meme) => {
+    setSelectedMeme(meme);
+  };
+
+  // Fonction pour fermer la modale
+  const closeModal = () => {
+    setSelectedMeme(null);
+  };
 
   // Fonction pour obtenir les éléments de la page courante
   const getCurrentPageItems = () => {
@@ -128,18 +139,44 @@ function Memes() {
             key={meme.id}
             className="rounded-lg overflow-hidden shadow-lg border border-primary"
           >
-            <Image
-              src={meme.url}
-              alt={meme.name}
-              width={250}
-              height={250}
-              className="object-cover w-full h-48 md:h-60 lg:h-72 xl:h-96 border-b border-primary"
-            />
+            <button
+              onClick={() => openModal(meme)}
+              className="w-full h-48 md:h-60 lg:h-72 xl:h-96"
+            >
+              <Image
+                src={meme.url}
+                alt={meme.name}
+                width={250}
+                height={250}
+                className="object-cover w-full h-full border-b border-primary"
+              />
+            </button>
             <p className="text-center text-white mt-2 p-4">{meme.name}</p>
           </div>
         ))}
       </div>
       <div className="mt-4 flex justify-center">{renderPagination()}</div>
+
+      {selectedMeme && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="absolute inset-0 bg-black opacity-80"></div>
+          <div className="relative z-10">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white text-2xl"
+            >
+              &times;
+            </button>
+            <Image
+              src={selectedMeme.url}
+              alt={selectedMeme.name}
+              width={500}
+              height={500}
+              className="max-w-full max-h-full"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
