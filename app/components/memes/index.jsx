@@ -163,7 +163,7 @@ function Memes() {
           <div className="relative z-10">
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-white text-2xl"
+              className="absolute top-4 right-4 text-primary text-2xl"
             >
               &times;
             </button>
