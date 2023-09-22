@@ -96,7 +96,7 @@ export default function Home() {
   const catScreamer = () => {
     setIsCatScreamer(true);
     playAudioCat();
-    setTimeout(() => setIsCatScreamer(false), 5000);
+    setTimeout(() => setIsCatScreamer(false), 10000);
   };
 
   const niceScreamer = () => {
@@ -343,6 +343,27 @@ const images = [
             onClick={handleButtonClick}
           />
         </div>
+      )}
+      {isCatScreamer && ( 
+        <Image 
+        src={cat2Image} 
+        alt="Cat" 
+        className={styles.catContainerTop} 
+        />
+      )}
+      {isCatScreamer && ( 
+        <Image 
+        src={cat2Image} 
+        alt="Cat" 
+        className={styles.catContainerMiddle} 
+        />
+      )}
+      {isCatScreamer && ( 
+        <Image 
+        src={cat2Image} 
+        alt="Cat" 
+        className={styles.catContainerMiddleB} 
+        />
       )}
       <center><h1 className={styles.popup_title}>Liste de notre Sélection</h1></center>
       <div className="flex justify-center items-center flex-col">
