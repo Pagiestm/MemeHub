@@ -18,6 +18,7 @@ import zemmour2Image from "app/assets/img/zemmour2.png";
 import twobuttons from "app/assets/img/twobuttons.jpg";
 import moneyRain from "app/assets/gifs/moneyRain.gif";
 import nice2Image from "app/assets/gifs/nice2.gif";
+import cat2Image from "app/assets/gifs/cat.gif";
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -28,6 +29,7 @@ export default function Home() {
   const [ismoneyRain, setIsmoneyRain] = useState(false);
   const [iscoffin, setIscoffin] = useState(false);
   const [isNiceMeme, setIsNiceMeme] = useState(false);
+  const [isCatScreamer, setIsCatScreamer] = useState(false);
 
   const audioAh = "/ressources/ah.mp3"
   const audioWii = "/ressources/wii.mp3"
@@ -37,11 +39,24 @@ export default function Home() {
   const coffinAudio = "/ressources/coffinDance.mp3"
   const audiojsuisbien = "/ressources/jsuisbien.mp3";
   const audioNice = "/ressources/nice.mp3";
+  const audioCat = "/ressources/cat.mp3";
 
   const playAudioNice = () => {
     const audio = new Audio(audioNice);
     audio.play();
   };
+
+  const playAudioCat = () => {
+    const audio = new Audio(audioCat);
+    audio.play();
+  };
+
+  const catScreamer = () => {
+    setIsCatScreamer(true);
+    playAudioCat();
+    setTimeout(() => setIsCatScreamer(false), 5000);
+  };
+
   const niceScreamer = () => {
     setIsNiceMeme(true);
     playAudioNice();
@@ -155,7 +170,14 @@ const images = [
     onClick: zemmourScreamer,
     srcSecond: zemmour2Image,
   },
-  { alt: "Top 2 : Nyan Cat", src: catImage, className: styles.imageCat },
+  { 
+    alt: "Top 2 : Nyan Cat",
+    src: catImage,
+    className: styles.imageCat,
+
+    onClick: catScreamer,
+    srcSecond: cat2Image,
+  },
   { 
     alt: "Top 1 : Thunes", 
     src: thunesImage, 
@@ -279,6 +301,15 @@ const images = [
             alt="Scremaer harold"
           />
         </div>
+      )}
+        {isCatScreamer && (
+        <Image
+          className={styles.animationCat}
+          src={images[currentImageIndex].srcSecond ||''}
+          width={250}
+          height={250}
+          alt="Nyan Cat Walking"
+        />
       )}
       <center><h1 className={styles.popup_title}>Liste de notre Sélection</h1></center>
       <div className="flex justify-center items-center flex-col">

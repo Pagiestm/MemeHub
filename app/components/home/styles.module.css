@@ -254,3 +254,21 @@
     transform: translateX(5px);
   }
 }
+
+@keyframes catAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(15000%);
+    opacity: 1;
+  }
+}
+
+.animationCat {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: catAnimation 30s ease-in-out;
+  transform-origin: bottom;
+}
