@@ -280,7 +280,7 @@ const images = [
           />
         </div>
       )}
-      <h1 className={styles.popup_title}>Liste de notre Sélection</h1>
+      <center><h1 className={styles.popup_title}>Liste de notre Sélection</h1></center>
       <div className="flex justify-center items-center flex-col">
         <Image
           src={images[currentImageIndex].src  || ''}
