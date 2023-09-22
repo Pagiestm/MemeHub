@@ -17,6 +17,7 @@ import amongUsWalkImage from "app/assets/img/amongus_walk.gif";
 import zemmour2Image from "app/assets/img/zemmour2.png";
 import twobuttons from "app/assets/img/twobuttons.jpg";
 import moneyRain from "app/assets/gifs/moneyRain.gif";
+import nice2Image from "app/assets/gifs/nice2.gif";
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -33,9 +34,26 @@ export default function Home() {
   const audioAmongUs = "/ressources/among_us.mp3"
   const audioMoney = "/ressources/money.mp3"
   const coffinAudio = "/ressources/coffinDance.mp3"
+  const [isNiceMeme, setIsNiceMeme] = useState(false);
+  const audiojsuisbien = "/ressources/jsuisbien.mp3";
+  const audioNice = "/ressources/nice.mp3";
+
+  const playAudioNice = () => {
+    const audio = new Audio(audioNice);
+    audio.play();
+  };
+  const niceScreamer = () => {
+    setIsNiceMeme(true);
+    playAudioNice();
+    setTimeout(() => setIsNiceMeme(false), 3000);
+  };
 
   const playAudioAmongUs = () => {
     const audio = new Audio(audioAmongUs);
+    audio.play();
+  };
+  const playAudiojsuisbien = () => {
+    const audio = new Audio(audiojsuisbien);
     audio.play();
   };
   const haroldScreamer = () => {
@@ -85,29 +103,34 @@ export default function Home() {
 
   const images = [
     {
-      alt: "AH",
+      alt: "Top 10 : AH",
       src: ahImage,
       className: styles.imageHarold,
       onClick: playAudioAh,
     },
     {
-      alt: "Hide the Pain Harold",
+      alt: "Top 9 : Hide the Pain Harold",
       src: haroldImage,
       className: styles.imageHarold,
 
       onClick: haroldScreamer,
       srcSecond: harold2Image,
     },
-    { alt: "Nice", src: niceImage, className: styles.imageNice },
+    { alt: "Top 8 : Nice", 
+      src: niceImage,
+      className: styles.imageNice,
+      onClick: niceScreamer,
+      srcSecond: nice2Image
+     },
     {
-      alt: "Among Us",
+      alt: "Top 7 : Among Us",
       src: amongusImage,
       className: styles.imageAmongUs,
       onClick: amongusWalking,
       srcSecond: amongUsWalkImage,
     },
     { 
-      alt: "Wii Sport", 
+      alt: "Top 6 : Wii Sport", 
       src: wiiImage, 
       className: styles.imageWii,
       onClick: playAudioWii
@@ -121,7 +144,13 @@ export default function Home() {
       srcSecond: coffinImage,
     },
     { 
-      alt: "Zemmour", 
+      alt: "Top 5 : J'suis bieng", 
+      src: jsuisBiengImage,
+      className: styles.imageBieng,
+      onClick: playAudiojsuisbien },
+    { alt: "Top 4 : Coffin Dance", src: coffinImage, className: styles.imageCoffin },
+    { 
+      alt: "Top 3 : Zemmour", 
       src: zemmourImage, 
       className: styles.imageZemmour ,
 
@@ -174,6 +203,15 @@ export default function Home() {
           width={250}
           height={250}
           alt="Among us walking"
+        />
+      )}
+      {isNiceMeme && (
+        <Image
+          className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999"
+          src={images[currentImageIndex].srcSecond}
+          width={250}
+          height={250}
+          alt="Screamer nice meme"
         />
       )}
       {isZemmourScreamer && (

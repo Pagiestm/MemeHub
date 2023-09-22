@@ -25,7 +25,7 @@
 /* Style pour le texte sous l'image */
 .imageText {
   text-align: center;
-  color: #333;
+  color: #fe9102;
   font-size: 18px;
   margin-top: 10px;
 }
@@ -39,7 +39,7 @@
 }
 
 .carouselButton {
-  background-color: #007bff;
+  background-color: #fe9102;
   color: #fff;
   border: none;
   padding: 10px 20px;
