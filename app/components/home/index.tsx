@@ -40,7 +40,6 @@ export default function Home() {
   const audiojsuisbien = "/ressources/jsuisbien.mp3";
   const audioNice = "/ressources/nice.mp3";
   const audioCat = "/ressources/cat.mp3";
-  const audiohehe = "/ressources/hehe.mp3";
 
   /* Show the easter egg*/
   const [content, setContent] = useState<React.ReactNode | null>(
@@ -51,12 +50,16 @@ export default function Home() {
 
   const handleButtonClick = () => {
     setShowButtonClick(!showButtonClick);
+    console.log(showButtonClick);
+    const imgTwo = document.querySelector('img[alt="Top 😱 : Two-Buttons"]') as HTMLDivElement;
     if (!showButtonClick) {
       setContent(
-        <Image src={twobuttons} alt="Meme" />
+        <Image src={moneyRain} alt="Meme" />
       );
+      imgTwo.style.opacity = '1';
     } else {
-      setContent(<Image src={twobuttons} alt="Meme" />);
+      setContent(<Image src={moneyRain} alt="Meme" />);
+      imgTwo.style.opacity = '1';
     }
   };
 
@@ -67,11 +70,14 @@ export default function Home() {
     const cy = e.clientY - rect.top;
 
     if (cx > 130 && cx < 250 && cy > 160 && cy < 220) {
+      console.log(e.target);
+      img.style.opacity = '0';
       setShowButtonClick(true);
       setContent(null);
     }
 
-    if (cx > 280 && cx < 380 && cy > 120 && cy < 150) {
+    if (cx > 280 && cx < 380 && cy > 120 && cy < 200) {
+      img.style.opacity = '0';
       setShowButtonClick(true);
       setContent(null);
     }
@@ -107,15 +113,8 @@ export default function Home() {
     const audio = new Audio(audiojsuisbien);
     audio.play();
   };
-
-  const playAudiohehe = () => {
-    const audio = new Audio(audiohehe);
-    audio.play();
-  };
-
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
-    playAudiohehe();
     setTimeout(() => setIsHaroldScreamer(false), 2000);
   };
 
