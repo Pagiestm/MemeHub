@@ -41,6 +41,8 @@ export default function Home() {
   const audioNice = "/ressources/nice.mp3";
   const audioCat = "/ressources/cat.mp3";
   const audiohehe = "/ressources/hehe.mp3";
+  const bienJouer = "/ressources/bienJouer.mp3";
+  const bienJouer2 = "/ressources/bienJouer2.mp3";
 
   /* Show the easter egg*/
   const [content, setContent] = useState<React.ReactNode | null>(
@@ -68,11 +70,15 @@ export default function Home() {
 
     if (cx > 130 && cx < 250 && cy > 160 && cy < 220) {
       setShowButtonClick(true);
+      const audio = new Audio(bienJouer);
+      audio.play();
       setContent(null);
     }
 
     if (cx > 280 && cx < 380 && cy > 120 && cy < 150) {
       setShowButtonClick(true);
+      const audio = new Audio(bienJouer2);
+      audio.play();
       setContent(null);
     }
   };
@@ -327,6 +333,7 @@ const images = [
       {showButtonClick && (
           <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <img
+          className={styles.easterEgg}
             src="https://cherry.img.pmdstatic.net/fit/https.3A.2F.2Fimg.2Eohmymag.2Ecom.2Fs3.2Ffromm.2Finsolite.2Fdefault_2019-10-08_cfb50d5a-bb57-4cbc-be5c-bd159070d3a7.2Ejpeg/1200x675/quality/80/saviez-vous-que-le-jeu-du-rond-provient-d-une-celebre-serie.jpg" // Replace with the image URL for your button
             alt="Button Image"
             style={{
