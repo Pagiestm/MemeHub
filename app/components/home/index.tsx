@@ -41,7 +41,6 @@ export default function Home() {
   const audioNice = "/ressources/nice.mp3";
   const audioCat = "/ressources/cat.mp3";
 
-
   /* Show the easter egg*/
   const [content, setContent] = useState<React.ReactNode | null>(
     <Image src={twobuttons} alt="Meme" />
@@ -76,7 +75,6 @@ export default function Home() {
       setContent(null);
     }
   };
-
 
   const playAudioNice = () => {
     const audio = new Audio(audioNice);
@@ -261,7 +259,7 @@ const images = [
       {isAmongUsWalk && (
         <Image
           className={styles.animationAmongUs}
-          src={images[currentImageIndex].srcSecond ||''}
+          src={images[currentImageIndex].srcSecond || ''}
           width={250}
           height={250}
           alt="Among us walking"
@@ -270,7 +268,7 @@ const images = [
       {isNiceMeme && (
         <Image
           className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999"
-          src={images[currentImageIndex].srcSecond  || ''}
+          src={images[currentImageIndex].srcSecond || ''}
           width={250}
           height={250}
           alt="Screamer nice meme"
@@ -280,7 +278,7 @@ const images = [
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className={styles.zemmour2}
-            src={images[currentImageIndex].srcSecond  || ''}
+            src={images[currentImageIndex].srcSecond || ''}
             width={1000}
             height={1000}
             alt="Scremaer harold"
@@ -318,16 +316,28 @@ const images = [
           alt="Nyan Cat Walking"
         />
       )}
+      {showButtonClick && (
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
+          <img
+            src="https://cherry.img.pmdstatic.net/fit/https.3A.2F.2Fimg.2Eohmymag.2Ecom.2Fs3.2Ffromm.2Finsolite.2Fdefault_2019-10-08_cfb50d5a-bb57-4cbc-be5c-bd159070d3a7.2Ejpeg/1200x675/quality/80/saviez-vous-que-le-jeu-du-rond-provient-d-une-celebre-serie.jpg" // Replace with the image URL for your button
+            alt="Button Image"
+            style={{
+              height: '300px',
+              cursor: 'pointer',
+            }}
+            onClick={handleButtonClick}
+          />
+        </div>
+      )}
       <center><h1 className={styles.popup_title}>Liste de notre Sélection</h1></center>
       <div className="flex justify-center items-center flex-col">
         <Image
-          src={images[currentImageIndex].src  || ''}
-          alt={images[currentImageIndex].alt  || ''}
+          src={images[currentImageIndex].src || ''}
+          alt={images[currentImageIndex].alt || ''}
           width={500}
           height={500}
-          className={`${
-            isAnimating ? images[currentImageIndex].className : ""
-          }`}
+          className={`${isAnimating ? images[currentImageIndex].className : ""
+            }`}
           onClick={images[currentImageIndex].onClick}
         />
       </div>
@@ -342,27 +352,6 @@ const images = [
           Suivant
         </button>
       </div>
-      {/* ClickableImage component code */}
-      <div
-          id="content"
-          style={{ marginLeft: '20px' }}
-          onClick={handleImageClick}
-        >
-          {content}
-        </div>
-        {showButtonClick && (
-          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
-          <img
-            src="https://cherry.img.pmdstatic.net/fit/https.3A.2F.2Fimg.2Eohmymag.2Ecom.2Fs3.2Ffromm.2Finsolite.2Fdefault_2019-10-08_cfb50d5a-bb57-4cbc-be5c-bd159070d3a7.2Ejpeg/1200x675/quality/80/saviez-vous-que-le-jeu-du-rond-provient-d-une-celebre-serie.jpg" // Replace with the image URL for your button
-            alt="Button Image"
-            style={{
-              height: '300px',
-              cursor: 'pointer',
-            }}
-            onClick={handleButtonClick}
-          />
-        </div>
-      )}
     </div>
   );
 }
