@@ -27,6 +27,7 @@ export default function Home() {
   const [isZemmourScreamer, setIsZemmourScreamer] = useState(false);
   const [ismoneyRain, setIsmoneyRain] = useState(false);
   const [iscoffin, setIscoffin] = useState(false);
+  const [isNiceMeme, setIsNiceMeme] = useState(false);
 
   const audioAh = "/ressources/ah.mp3"
   const audioWii = "/ressources/wii.mp3"
@@ -34,37 +35,28 @@ export default function Home() {
   const audioAmongUs = "/ressources/among_us.mp3"
   const audioMoney = "/ressources/money.mp3"
   const coffinAudio = "/ressources/coffinDance.mp3"
-  const [isNiceMeme, setIsNiceMeme] = useState(false);
   const audiojsuisbien = "/ressources/jsuisbien.mp3";
   const audioNice = "/ressources/nice.mp3";
 
-  const playAudioNice = () => {
-    const audio = new Audio(audioNice);
-    audio.play();
-  };
-  const niceScreamer = () => {
-    setIsNiceMeme(true);
-    playAudioNice();
-    setTimeout(() => setIsNiceMeme(false), 3000);
-  };
-
-  const playAudioAmongUs = () => {
-    const audio = new Audio(audioAmongUs);
-    audio.play();
-  };
-  const playAudiojsuisbien = () => {
-    const audio = new Audio(audiojsuisbien);
-    audio.play();
-  };
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
     setTimeout(() => setIsHaroldScreamer(false), 2000);
   };
 
+  const niceScreamer = () => {
+    setIsNiceMeme(true);
+    setTimeout(() => setIsNiceMeme(false), 3000);
+
+    const audio = new Audio(audioNice);
+    audio.play();
+  };
+
   const amongusWalking = () => {
     setIsAmongUsWalk(true);
-    playAudioAmongUs();
     setTimeout(() => setIsAmongUsWalk(false), 15000);
+
+    const audio = new Audio(audioAmongUs);
+    audio.play();
   }
 
   const zemmourScreamer = () => {
@@ -103,39 +95,44 @@ export default function Home() {
 
   const images = [
     {
-      alt: "Top 10 : AH",
+      alt: "AH",
       src: ahImage,
       className: styles.imageHarold,
       onClick: playAudioAh,
     },
     {
-      alt: "Top 9 : Hide the Pain Harold",
+      alt: "Hide the Pain Harold",
       src: haroldImage,
       className: styles.imageHarold,
 
       onClick: haroldScreamer,
       srcSecond: harold2Image,
     },
-    { alt: "Top 8 : Nice", 
-      src: niceImage,
+    { 
+      alt: "Nice", 
+      src: niceImage, 
       className: styles.imageNice,
-      onClick: niceScreamer,
-      srcSecond: nice2Image
-     },
+      onclick: niceScreamer,
+      srcSecond: nice2Image,
+    },
     {
-      alt: "Top 7 : Among Us",
+      alt: "Among Us",
       src: amongusImage,
       className: styles.imageAmongUs,
       onClick: amongusWalking,
       srcSecond: amongUsWalkImage,
     },
     { 
-      alt: "Top 6 : Wii Sport", 
+      alt: "Wii Sport", 
       src: wiiImage, 
       className: styles.imageWii,
       onClick: playAudioWii
     },
-    { alt: "J'suis bieng", src: jsuisBiengImage, className: styles.imageBieng },
+    { 
+      alt: "J'suis bieng", 
+      src: jsuisBiengImage, 
+      className: styles.imageBieng 
+    },
     { 
       alt: "Coffin Dance", 
       src: coffinImage, 
@@ -144,13 +141,7 @@ export default function Home() {
       srcSecond: coffinImage,
     },
     { 
-      alt: "Top 5 : J'suis bieng", 
-      src: jsuisBiengImage,
-      className: styles.imageBieng,
-      onClick: playAudiojsuisbien },
-    { alt: "Top 4 : Coffin Dance", src: coffinImage, className: styles.imageCoffin },
-    { 
-      alt: "Top 3 : Zemmour", 
+      alt: "Zemmour", 
       src: zemmourImage, 
       className: styles.imageZemmour ,
 
@@ -183,13 +174,48 @@ export default function Home() {
     setTimeout(() => setIsAnimating(false), 2000);
   };
 
+  /* Show the easter egg*/
+  const [content, setContent] = useState<React.ReactNode | null>(
+    <Image src={twobuttons} alt="Meme" />
+  );
+
+  const [showButtonClick, setShowButtonClick] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowButtonClick(!showButtonClick);
+    if (!showButtonClick) {
+      setContent(
+        <Image src={twobuttons} alt="Meme" />
+      );
+    } else {
+      setContent(<Image src={twobuttons} alt="Meme" />);
+    }
+  };
+
+  const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const img = e.target as HTMLDivElement;
+    const rect = img.getBoundingClientRect();
+    const cx = e.clientX - rect.left;
+    const cy = e.clientY - rect.top;
+
+    if (cx > 130 && cx < 250 && cy > 160 && cy < 220) {
+      setShowButtonClick(true);
+      setContent(null);
+    }
+
+    if (cx > 350 && cx < 440 && cy > 120 && cy < 230) {
+      setShowButtonClick(true);
+      setContent(null);
+    }
+  };
+
   return (
     <div className={`container ${styles.carouselContainer}`}>
       {isHaroldScreamer && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className=""
-            src={images[currentImageIndex].srcSecond}
+            src={images[currentImageIndex].srcSecond || ''}
             width={1000}
             height={1000}
             alt="Scremaer harold"
@@ -199,26 +225,17 @@ export default function Home() {
       {isAmongUsWalk && (
         <Image
           className={styles.animationAmongUs}
-          src={images[currentImageIndex].srcSecond}
+          src={images[currentImageIndex].srcSecond ||''}
           width={250}
           height={250}
           alt="Among us walking"
-        />
-      )}
-      {isNiceMeme && (
-        <Image
-          className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999"
-          src={images[currentImageIndex].srcSecond}
-          width={250}
-          height={250}
-          alt="Screamer nice meme"
         />
       )}
       {isZemmourScreamer && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className={styles.zemmour2}
-            src={images[currentImageIndex].srcSecond}
+            src={images[currentImageIndex].srcSecond || ''}
             width={1000}
             height={1000}
             alt="Scremaer harold"
@@ -229,7 +246,7 @@ export default function Home() {
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className=""
-            src={images[currentImageIndex].srcSecond}
+            src={images[currentImageIndex].srcSecond || ''}
             width={1000}
             height={1000}
             alt="Scremaer harold"
@@ -240,7 +257,7 @@ export default function Home() {
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className={styles.coffinDance}
-            src={images[currentImageIndex].srcSecond}
+            src={images[currentImageIndex].srcSecond || ''}
             width={1000}
             height={1000}
             alt="Scremaer harold"
@@ -271,6 +288,28 @@ export default function Home() {
           Suivant
         </button>
       </div>
+
+
+
+      {/* ClickableImage component code */}
+        <div
+          id="content"
+          style={{ marginLeft: '20px' }}
+          onClick={handleImageClick}
+        >
+          {content}
+        </div>
+        {showButtonClick && (
+          <img
+            src="https://cherry.img.pmdstatic.net/fit/https.3A.2F.2Fimg.2Eohmymag.2Ecom.2Fs3.2Ffromm.2Finsolite.2Fdefault_2019-10-08_cfb50d5a-bb57-4cbc-be5c-bd159070d3a7.2Ejpeg/1200x675/quality/80/saviez-vous-que-le-jeu-du-rond-provient-d-une-celebre-serie.jpg" // Replace with the image URL for your button
+            alt="Button Image"
+            style={{
+              height: '300px',
+              cursor: 'pointer',
+            }}
+            onClick={handleButtonClick}
+          />
+        )}
     </div>
   );
 }
