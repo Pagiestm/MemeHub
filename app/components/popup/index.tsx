@@ -42,6 +42,7 @@ export default function Popup() {
             <div className={styles.popup_content}>
                 <label>MêmeHub est une communauté qui offre du contenu réservé aux étudiants.</label>
                 <label>Vous devez avoir de l’humour ou plus pour entrer.</label>
+                <label>Un Easter Egg est caché, cliquez un peu partout pour le trouver.</label>
             </div>
             <button
               className={styles.popup_close_button}

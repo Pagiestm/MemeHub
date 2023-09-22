@@ -1,18 +1,16 @@
-"use client";
-import { useState, useRef } from "react";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-import styles from "./styles.module.css";
-import harold from "../../assets/img/harold.png";
-import logo from "../../assets/img/logo.png";
-import poney from "../../assets/gifs/petitPoney.gif";
-import minion from "../../assets/img/minion.png";
+'use client'
+import { useState, useRef } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
+import styles from './styles.module.css';
+import harold from '../../assets/img/harold.png';
+import poney from '../../assets/gifs/petitPoney.gif';
+import minion from '../../assets/img/minion.png';
+import uwu from '../../assets/img/uwu.png';
 
 export default function Notation() {
   const [rating, setRating] = useState<number>(0);
-  const [selectedImage, setSelectedImage] = useState<
-    string | StaticImageData | null
-  >(null);
+  const [selectedImage, setSelectedImage] = useState<string | StaticImageData | null>(null);
   const [showLink, setShowLink] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -36,21 +34,25 @@ export default function Notation() {
   };
 
   const audioSrcs = [
-    "/ressources/ahhhhhhh.mp3",
-    "/ressources/petitPoney.mp3",
-    "/ressources/uiiiiiiii.mp3",
-    "/ressources/veryNice.mp3",
-    "/ressources/dogOut.mp3",
+    '/ressources/ahhhhhhh.mp3',
+    '/ressources/petitPoney.mp3',
+    '/ressources/uiiiiiiii.mp3',
+    '/ressources/sussyUwu.mp3',
+    '/ressources/dogOut.mp3',
   ];
 
-  const imageSrcs = [harold, poney, minion, logo, logo];
+  const imageSrcs = [
+    harold,
+    poney,
+    minion,
+    uwu,
+  ];
 
   const imageClasses = [
     styles.image_harold,
     styles.image_poney,
     styles.image_minion,
-    styles.image_logo,
-    styles.image_default,
+    styles.image_uwu,
   ];
 
   const playAudio = (index: number) => {
@@ -75,9 +77,7 @@ export default function Notation() {
 
           {selectedImage && (
             <Image
-              className={`${styles.appear_from_bottom} ${
-                imageClasses[rating - 1]
-              }`}
+              className={`${styles.appear_from_bottom} ${imageClasses[rating - 1]}`}
               src={selectedImage}
               alt={`Image ${rating}`}
               width={60}
@@ -86,13 +86,11 @@ export default function Notation() {
           )}
         </div>
         <div className={styles.notatio_btn_container}>
-          {showLink && (
-            <Link className={styles.notation_button} href="/home">
-              Redirection
-            </Link>
-          )}
+            {showLink && (
+                <Link className={styles.notation_button} href="/home">On verra ça !</Link>
+            )}
         </div>
-        <audio ref={audioRef} style={{ display: "none" }} />
+        <audio ref={audioRef} style={{ display: 'none' }} />
       </div>
     </div>
   );
@@ -106,7 +104,7 @@ interface StarProps {
 function Star({ selected, onClick }: StarProps) {
   return (
     <span
-      className={`${styles.star} ${selected ? styles.selected : ""}`}
+      className={`${styles.star} ${selected ? styles.selected : ''}`}
       onClick={onClick}
     >
       ★

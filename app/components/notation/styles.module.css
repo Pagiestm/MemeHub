@@ -1,91 +1,152 @@
 .notation {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .notation_title {
-    text-align: center;
-    width: 100%;
-    font-size: 50px;
-    color: var(--secondaryColor);
-    margin-bottom: -50px;
+  text-align: center;
+  width: 100%;
+  font-size: 50px;
+  color: var(--secondaryColor);
+  margin-bottom: -50px;
 }
 
 .star {
-    font-size: 200px;
-    color: white;
-    cursor: var(--cursor);
+  font-size: 200px;
+  color: white;
+  cursor: var(--cursor);
 }
 
 .star.selected {
-    color: var(--secondaryColor);
+  color: var(--secondaryColor);
 }
 
 /* images */
 .image_harold {
-    position: absolute;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: haroldAnimation 1s forwards, haroldRestoreAnimation 1s 10s forwards;
+  transform-origin: center;
 }
 
 .image_poney {
-    position: absolute;
-    left: -100%;
-    margin-top: -100px;
-    width: 30%;
-    animation: poneyAnimation 15s ease-in-out;
-    transform-origin: bottom;
+  position: absolute;
+  left: -100%;
+  margin-top: -100px;
+  width: 30%;
+  animation: poneyAnimation 15s ease-in-out;
+  transform-origin: bottom;
 }
 
 .image_minion {
-    position: absolute;
-    right: -50%;
-    margin-top: -500px;
-    width: 80px;
-    animation: minionAnimation 2s ease-in-out;
-    transform-origin: bottom;
+  position: absolute;
+  right: -50%;
+  margin-top: -500px;
+  width: 80px;
+  animation: minionAnimation 2s ease-in-out;
+  transform-origin: bottom;
 }
 
-.image_logo {
-    position: absolute;
+.image_uwu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeInOut 1s ease-in-out 4, uwuAnimation 1s forwards, uwuRestoreAnimation 1s 6s forwards;
+  transform-origin: center;
+  background-color: var(--secondaryColor);
+  border-radius: 5px;
 }
 
-.image_default {
-    position: absolute;
+@keyframes haroldAnimation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(20);
+  }
+}
+
+@keyframes haroldRestoreAnimation {
+  from {
+    transform: scale(20);
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
 @keyframes poneyAnimation {
-    from {
-      transform: translateX(600%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  from {
+    transform: translateX(600%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes minionAnimation {
-    from {
-        transform: translateX(-3000%) rotate(0deg);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(0) rotate(1800deg);
-        opacity: 1;
-      }
+  from {
+    transform: translateX(-3000%) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0) rotate(1800deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes uwuAnimation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(20);
+  }
+}
+
+@keyframes uwuRestoreAnimation {
+  from {
+    transform: scale(20);
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
 .notatio_btn_container {
-    text-align: center;
+  text-align: center;
 }
 
 .notation_button {
-    background-color: var(--secondaryColor);
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    cursor: var(--cursor);
+  background-color: var(--secondaryColor);
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  cursor: var(--cursor);
 }

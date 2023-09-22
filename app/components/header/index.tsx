@@ -45,12 +45,12 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/Draw"
+                  href="/games"
                   className={
-                    currentRoute === "/Draw" ? styles.activeLink : styles.link
+                    currentRoute === "/games" ? styles.activeLink : styles.link
                   }
                 >
-                  Crée ton dessin !
+                  Vient jouer !
                 </Link>
               </li>
               <li>

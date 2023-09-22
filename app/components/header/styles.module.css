@@ -23,8 +23,10 @@
 
 .link:hover {
   color: var(--secondaryColor);
+  cursor: var(--cursor);
 }
 
 .activeLink {
   color: var(--secondaryColor);
+  cursor: var(--cursor);
 }

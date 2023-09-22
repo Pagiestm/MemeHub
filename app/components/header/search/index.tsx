@@ -1,15 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function SearchBar() {
   const [showImage, setShowImage] = useState(false);
+  const [audioSrc, setAudioSrc] = useState<string>("");
 
   const handleSearch = () => {
     setShowImage(true);
     setTimeout(() => {
       setShowImage(false);
-    }, 5000); // L'image disparaît après 5 secondes (5000 millisecondes)
+    }, 10000); // L'image disparaît après 5 secondes (5000 millisecondes)
   };
+
+  const audioSrcs = '/ressources/trollolol.mp3'; 
+  const handleAudioPlay = () => {
+    const audio = new Audio(audioSrcs);
+    audio.play();
+  };
+
+
+  useEffect(() => {
+    // Ajout du bruit de fond toutes les 10 secondes
+    const interval = setInterval(() => {
+      const noise = Math.floor(Math.random() * 100);
+      const blurredAudioSrc = `/ressources/discord.mp3?blur=${noise}`;
+      setAudioSrc(blurredAudioSrc);
+
+      // Lecture audio
+      const audio = new Audio(blurredAudioSrc);
+      audio.play();
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="flex items-center justify-center w-1/2">
@@ -22,7 +47,10 @@ export default function SearchBar() {
           required
         />
         <button
-          onClick={handleSearch}
+          onClick={() => {
+            handleSearch();
+            handleAudioPlay(); 
+          }}
           type="submit"
           className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-primary rounded-r-lg border border-[#fe9102] hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-[#fe9102]"
         >

@@ -1,8 +1,9 @@
 .popup_title {
   color: var(--textTitle);
-  font-size: 24px; /* Taille de police du titre */
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 /* Styles pour le conteneur principal du carrousel */
@@ -10,19 +11,21 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  text-align: center; /* Centrer le contenu dans le conteneur */
+  text-align: center;
 }
 
 /* Styles pour l'image affichée */
 .relative {
   position: relative;
-  display: inline-block; /* Permet de centrer l'image horizontalement */
+  display: inline-block;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 /* Style pour le texte sous l'image */
 .imageText {
   text-align: center;
-  color: #333;
+  color: #fe9102;
   font-size: 18px;
   margin-top: 10px;
 }
@@ -33,10 +36,11 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  cursor: var(--cursor);;
 }
 
 .carouselButton {
-  background-color: #007bff;
+  background-color: #fe9102;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -44,4 +48,291 @@
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
+  cursor: var(--cursor);;
+}
+
+@keyframes amongUsAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(600%);
+    opacity: 1;
+  }
+}
+
+.animationAmongUs {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: amongUsAnimation 15s ease-in-out;
+  transform-origin: bottom;
+}
+
+@keyframes slideAnimationAh {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%) rotate(360deg);
+  }
+}
+
+@keyframes slideAnimationNice {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%) rotate(360deg);
+  }
+}
+
+/* Animation pour l'image "Hide the Pain Harold" */
+@keyframes slideAnimationHarold {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%) rotate(660deg);
+  }
+}
+
+@keyframes slideAnimationWii {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%) rotate(860deg);
+  }
+}
+
+@keyframes slideAnimationAmongUs {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideAnimationbieng {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes slideAnimationCoffin {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%) rotate(960deg);
+  }
+}
+
+@keyframes slideAnimationZemmour {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%) rotate(11160deg);
+  }
+}
+
+@keyframes slideAnimationCat {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%) rotate(11160deg);
+  }
+}
+
+@keyframes slideAnimationThunes {
+  from {
+    transform: translateY(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateY(0%) rotate(11160deg);
+  }
+}
+
+.imageAh {
+  animation: slideAnimationHarold 1s ease-in-out;
+}
+
+.imageHarold {
+  animation: slideAnimationHarold 1s ease-in-out;
+}
+
+.imageNice {
+  animation: slideAnimationNice 1s ease-in-out;
+}
+
+.imageWii {
+  animation: slideAnimationWii 1s ease-in-out;
+}
+
+.imageAmongUs {
+  animation: slideAnimationAmongUs 1.3s ease-in-out;
+}
+
+.imageBieng {
+  animation: slideAnimationbieng 3s ease-in-out;
+}
+
+.imageCoffin {
+  animation: slideAnimationCoffin 1s ease-in-out;
+}
+
+.imageZemmour {
+  animation: slideAnimationZemmour 2s ease-in-out;
+}
+
+.imageCat {
+  animation: slideAnimationCat 1s ease-in-out;
+}
+
+.imageThunes {
+  animation: slideAnimationThunes 1s ease-in-out;
+}
+
+.zemmour2 {
+  animation: zemmourAnimation 2s ease-in-out;
+  transform-origin: bottom;
+  margin-top: 400px;
+  width: 30%;
+}
+
+@keyframes zemmourAnimation {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.moneyRain {
+  animation: slideAnimationHarold 1s ease-in-out;
+}
+
+@keyframes moneyAnimation {
+  from {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  to {
+    transform: translateX(0%) rotate(660deg);
+  }
+}
+
+.coffinDance {
+  animation: colorBlink 1s infinite alternate, shake 0.1s infinite alternate;
+}
+
+@keyframes colorBlink {
+  0% {
+    filter: hue-rotate(0deg); /* Couleur de départ */
+  }
+  100% {
+    filter: hue-rotate(180deg); /* Couleur finale */
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.animationCat {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: catAnimation 30s ease-in-out 3; /* Ajoutez le nombre d'itérations (3) ici */
+  transform-origin: bottom;
+}
+
+@keyframes catAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(15000%);
+    opacity: 1;
+  }
+}
+
+
+.easterEgg {
+  animation: easterEggAnimation 0.5s ease-in-out;
+  transform-origin: center;
+  width: 20%;
+  border-radius: 100%;
+  transform: scale(2);
+}
+
+@keyframes easterEggAnimation {
+  0% {
+    transform: scale(0) rotate(0deg);
+  }
+  100% {
+    transform: scale(2) rotate(1800deg);
+  }
+}
+.animationCat {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: catAnimation 70s ease-in-out;
+  transform-origin: bottom;
+  width: 300px;
+}
+
+@keyframes catAnimationAll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(15000%);
+    opacity: 1;
+  }
+}
+
+.catContainerTop {
+  left: 0;
+  animation: catAnimationAll 70s ease-in-out;
+  transform-origin: bottom;
+  position: fixed;
+  top: 0;
+  width: 300px;
+}
+
+.catContainerMiddle {
+  left: 0;
+  animation: catAnimationAll 50s ease-in-out;
+  transform-origin: bottom;
+  position: fixed;
+  top : 50%;
+  width: 300px;
+}
+.catContainerMiddleB {
+  left: 0;
+  animation: catAnimationAll 50s ease-in-out;
+  transform-origin: bottom;
+  position: fixed;
+  top : 25%;
+  width: 300px;
 }
