@@ -53,12 +53,16 @@ export default function Home() {
 
   const handleButtonClick = () => {
     setShowButtonClick(!showButtonClick);
+    console.log(showButtonClick);
+    const imgTwo = document.querySelector('img[alt="Top 😱 : Two-Buttons"]') as HTMLDivElement;
     if (!showButtonClick) {
       setContent(
-        <Image src={twobuttons} alt="Meme" />
+        <Image src={moneyRain} alt="Meme" />
       );
+      imgTwo.style.opacity = '1';
     } else {
-      setContent(<Image src={twobuttons} alt="Meme" />);
+      setContent(<Image src={moneyRain} alt="Meme" />);
+      imgTwo.style.opacity = '1';
     }
   };
 
@@ -69,13 +73,16 @@ export default function Home() {
     const cy = e.clientY - rect.top;
 
     if (cx > 130 && cx < 250 && cy > 160 && cy < 220) {
+      console.log(e.target);
+      img.style.opacity = '0';
       setShowButtonClick(true);
       const audio = new Audio(bienJouer);
       audio.play();
       setContent(null);
     }
 
-    if (cx > 280 && cx < 380 && cy > 120 && cy < 150) {
+    if (cx > 280 && cx < 380 && cy > 120 && cy < 200) {
+      img.style.opacity = '0';
       setShowButtonClick(true);
       const audio = new Audio(bienJouer2);
       audio.play();
@@ -113,15 +120,8 @@ export default function Home() {
     const audio = new Audio(audiojsuisbien);
     audio.play();
   };
-
-  const playAudiohehe = () => {
-    const audio = new Audio(audiohehe);
-    audio.play();
-  };
-
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
-    playAudiohehe();
     setTimeout(() => setIsHaroldScreamer(false), 2000);
   };
 
@@ -137,7 +137,7 @@ export default function Home() {
     const audio = new Audio(zemmouHIIIN);
     audio.play();
   }
-  
+
   const playAudioAh = () => {
     const audio = new Audio(audioAh);
     audio.play();
@@ -164,84 +164,85 @@ export default function Home() {
     audio.play();
   }
 
-const images = [
-  {
-    alt: "Top 10 : AH",
-    src: ahImage,
-    className: styles.imageHarold,
-    onClick: playAudioAh,
-  },
-  {
-    alt: "Top 9 : Hide the Pain Harold",
-    src: haroldImage,
-    className: styles.imageHarold,
+  const images = [
+    {
+      alt: "Top 10 : AH",
+      src: ahImage,
+      className: styles.imageHarold,
+      onClick: playAudioAh,
+    },
+    {
+      alt: "Top 9 : Hide the Pain Harold",
+      src: haroldImage,
+      className: styles.imageHarold,
 
-    onClick: haroldScreamer,
-    srcSecond: harold2Image,
-  },
-  { alt: "Top 8 : Nice", 
-    src: niceImage,
-    className: styles.imageNice,
-    onClick: niceScreamer,
-    srcSecond: nice2Image
-   },
-  {
-    alt: "Top 7 : Among Us",
-    src: amongusImage,
-    className: styles.imageAmongUs,
-    onClick: amongusWalking,
-    srcSecond: amongUsWalkImage,
-  },
-  { 
-    alt: "Top 6 : Wii Sport", 
-    src: wiiImage, 
-    className: styles.imageWii,
-    onClick: playAudioWii
-  },
-  { 
-    alt: "Top 5 : J'suis bieng", 
-    src: jsuisBiengImage,
-    className: styles.imageBieng,
-    onClick: playAudiojsuisbien 
-  },
-  { 
-    alt: "Top 4 : Coffin Dance", 
-    src: coffinImage, 
-    className: styles.imageCoffin,
-    onClick: coffinDance,
-    srcSecond: coffinImage,
-  },  
-  { 
-    alt: "Top 3 : Zemmour", 
-    src: zemmourImage, 
-    className: styles.imageZemmour ,
+      onClick: haroldScreamer,
+      srcSecond: harold2Image,
+    },
+    {
+      alt: "Top 8 : Nice",
+      src: niceImage,
+      className: styles.imageNice,
+      onClick: niceScreamer,
+      srcSecond: nice2Image
+    },
+    {
+      alt: "Top 7 : Among Us",
+      src: amongusImage,
+      className: styles.imageAmongUs,
+      onClick: amongusWalking,
+      srcSecond: amongUsWalkImage,
+    },
+    {
+      alt: "Top 6 : Wii Sport",
+      src: wiiImage,
+      className: styles.imageWii,
+      onClick: playAudioWii
+    },
+    {
+      alt: "Top 5 : J'suis bieng",
+      src: jsuisBiengImage,
+      className: styles.imageBieng,
+      onClick: playAudiojsuisbien
+    },
+    {
+      alt: "Top 4 : Coffin Dance",
+      src: coffinImage,
+      className: styles.imageCoffin,
+      onClick: coffinDance,
+      srcSecond: coffinImage,
+    },
+    {
+      alt: "Top 3 : Zemmour",
+      src: zemmourImage,
+      className: styles.imageZemmour,
 
-    onClick: zemmourScreamer,
-    srcSecond: zemmour2Image,
-  },
-  { 
-    alt: "Top 2 : Nyan Cat",
-    src: catImage,
-    className: styles.imageCat,
+      onClick: zemmourScreamer,
+      srcSecond: zemmour2Image,
+    },
+    {
+      alt: "Top 2 : Nyan Cat",
+      src: catImage,
+      className: styles.imageCat,
 
-    onClick: catScreamer,
-    srcSecond: cat2Image,
-  },
-  { 
-    alt: "Top 1 : Thunes", 
-    src: thunesImage, 
-    className: styles.imageThunes,
+      onClick: catScreamer,
+      srcSecond: cat2Image,
+    },
+    {
+      alt: "Top 1 : Thunes",
+      src: thunesImage,
+      className: styles.imageThunes,
 
-    onClick: money,
-    srcSecond: moneyRain,
-  },
-  { 
-    alt: "Top 😱 : Two-Buttons",
-    src: twobuttons,
-    className: styles.twobuttons,
-    onClick: handleImageClick
-  },
-];
+      onClick: money,
+      srcSecond: moneyRain,
+    },
+    {
+      alt: "Top 😱 : Two-Buttons",
+      src: twobuttons,
+      className: styles.twobuttons,
+      onClick: handleImageClick
+    },
+  ];
 
   const handlePrevClick = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -321,28 +322,14 @@ const images = [
           />
         </div>
       )}
-        {isCatScreamer && (
+      {isCatScreamer && (
         <Image
           className={styles.animationCat}
-          src={images[currentImageIndex].srcSecond ||''}
+          src={images[currentImageIndex].srcSecond || ''}
           width={250}
           height={250}
           alt="Nyan Cat Walking"
         />
-      )}
-      {showButtonClick && (
-          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
-          <img
-          className={styles.easterEgg}
-            src="https://cherry.img.pmdstatic.net/fit/https.3A.2F.2Fimg.2Eohmymag.2Ecom.2Fs3.2Ffromm.2Finsolite.2Fdefault_2019-10-08_cfb50d5a-bb57-4cbc-be5c-bd159070d3a7.2Ejpeg/1200x675/quality/80/saviez-vous-que-le-jeu-du-rond-provient-d-une-celebre-serie.jpg" // Replace with the image URL for your button
-            alt="Button Image"
-            style={{
-              height: '300px',
-              cursor: 'pointer',
-            }}
-            onClick={handleButtonClick}
-          />
-        </div>
       )}
       {isCatScreamer && ( 
         <Image 
@@ -388,6 +375,19 @@ const images = [
           Suivant
         </button>
       </div>
+      {showButtonClick && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
+          <img
+            src="https://cherry.img.pmdstatic.net/fit/https.3A.2F.2Fimg.2Eohmymag.2Ecom.2Fs3.2Ffromm.2Finsolite.2Fdefault_2019-10-08_cfb50d5a-bb57-4cbc-be5c-bd159070d3a7.2Ejpeg/1200x675/quality/80/saviez-vous-que-le-jeu-du-rond-provient-d-une-celebre-serie.jpg" // Replace with the image URL for your button
+            alt="Button Image"
+            style={{
+              height: '300px',
+              cursor: 'pointer',
+            }}
+            onClick={handleButtonClick}
+          />
+        </div>
+      )}
     </div>
   );
 }
