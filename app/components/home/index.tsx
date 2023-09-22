@@ -218,7 +218,7 @@ export default function Home() {
             src={images[currentImageIndex].srcSecond || ''}
             width={1000}
             height={1000}
-            alt="Scremaer harold"
+            alt="Screamer harold"
           />
         </div>
       )}
@@ -231,11 +231,20 @@ export default function Home() {
           alt="Among us walking"
         />
       )}
+      {isNiceMeme && (
+        <Image
+          className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999"
+          src={images[currentImageIndex].srcSecond  || ''}
+          width={250}
+          height={250}
+          alt="Screamer nice meme"
+        />
+      )}
       {isZemmourScreamer && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <Image
             className={styles.zemmour2}
-            src={images[currentImageIndex].srcSecond || ''}
+            src={images[currentImageIndex].srcSecond  || ''}
             width={1000}
             height={1000}
             alt="Scremaer harold"
@@ -267,8 +276,8 @@ export default function Home() {
       <h1 className={styles.popup_title}>Liste de notre Sélection</h1>
       <div className="flex justify-center items-center flex-col">
         <Image
-          src={images[currentImageIndex].src}
-          alt={images[currentImageIndex].alt}
+          src={images[currentImageIndex].src  || ''}
+          alt={images[currentImageIndex].alt  || ''}
           width={500}
           height={500}
           className={`${
@@ -288,11 +297,8 @@ export default function Home() {
           Suivant
         </button>
       </div>
-
-
-
       {/* ClickableImage component code */}
-        <div
+      <div
           id="content"
           style={{ marginLeft: '20px' }}
           onClick={handleImageClick}
