@@ -120,8 +120,15 @@ export default function Home() {
     const audio = new Audio(audiojsuisbien);
     audio.play();
   };
+
+  const playAudiohehe = () => {
+    const audio = new Audio(audiohehe);
+    audio.play();
+  };
+
   const haroldScreamer = () => {
     setIsHaroldScreamer(true);
+    playAudiohehe();
     setTimeout(() => setIsHaroldScreamer(false), 2000);
   };
 
