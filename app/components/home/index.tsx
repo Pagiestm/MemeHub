@@ -41,6 +41,43 @@ export default function Home() {
   const audioNice = "/ressources/nice.mp3";
   const audioCat = "/ressources/cat.mp3";
 
+
+  /* Show the easter egg*/
+  const [content, setContent] = useState<React.ReactNode | null>(
+    <Image src={twobuttons} alt="Meme" />
+  );
+
+  const [showButtonClick, setShowButtonClick] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowButtonClick(!showButtonClick);
+    if (!showButtonClick) {
+      setContent(
+        <Image src={twobuttons} alt="Meme" />
+      );
+    } else {
+      setContent(<Image src={twobuttons} alt="Meme" />);
+    }
+  };
+
+  const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const img = e.target as HTMLDivElement;
+    const rect = img.getBoundingClientRect();
+    const cx = e.clientX - rect.left;
+    const cy = e.clientY - rect.top;
+
+    if (cx > 130 && cx < 250 && cy > 160 && cy < 220) {
+      setShowButtonClick(true);
+      setContent(null);
+    }
+
+    if (cx > 350 && cx < 440 && cy > 120 && cy < 230) {
+      setShowButtonClick(true);
+      setContent(null);
+    }
+  };
+
+
   const playAudioNice = () => {
     const audio = new Audio(audioNice);
     audio.play();
@@ -186,7 +223,12 @@ const images = [
     onClick: money,
     srcSecond: moneyRain,
   },
-  { alt: "Top 😱 : Two-Buttons", src: twobuttons, className: styles.twobuttons },
+  { 
+    alt: "Top 😱 : Two-Buttons",
+    src: twobuttons,
+    className: styles.twobuttons,
+    onClick: handleImageClick
+  },
 ];
 
   const handlePrevClick = () => {
@@ -201,41 +243,6 @@ const images = [
     );
     setIsAnimating(true);
     setTimeout(() => setIsAnimating(false), 2000);
-  };
-
-  /* Show the easter egg*/
-  const [content, setContent] = useState<React.ReactNode | null>(
-    <Image src={twobuttons} alt="Meme" />
-  );
-
-  const [showButtonClick, setShowButtonClick] = useState(false);
-
-  const handleButtonClick = () => {
-    setShowButtonClick(!showButtonClick);
-    if (!showButtonClick) {
-      setContent(
-        <Image src={twobuttons} alt="Meme" />
-      );
-    } else {
-      setContent(<Image src={twobuttons} alt="Meme" />);
-    }
-  };
-
-  const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const img = e.target as HTMLDivElement;
-    const rect = img.getBoundingClientRect();
-    const cx = e.clientX - rect.left;
-    const cy = e.clientY - rect.top;
-
-    if (cx > 130 && cx < 250 && cy > 160 && cy < 220) {
-      setShowButtonClick(true);
-      setContent(null);
-    }
-
-    if (cx > 350 && cx < 440 && cy > 120 && cy < 230) {
-      setShowButtonClick(true);
-      setContent(null);
-    }
   };
 
   return (
@@ -344,6 +351,7 @@ const images = [
           {content}
         </div>
         {showButtonClick && (
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999">
           <img
             src="https://cherry.img.pmdstatic.net/fit/https.3A.2F.2Fimg.2Eohmymag.2Ecom.2Fs3.2Ffromm.2Finsolite.2Fdefault_2019-10-08_cfb50d5a-bb57-4cbc-be5c-bd159070d3a7.2Ejpeg/1200x675/quality/80/saviez-vous-que-le-jeu-du-rond-provient-d-une-celebre-serie.jpg" // Replace with the image URL for your button
             alt="Button Image"
@@ -353,7 +361,8 @@ const images = [
             }}
             onClick={handleButtonClick}
           />
-        )}
+        </div>
+      )}
     </div>
   );
 }
